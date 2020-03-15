@@ -17,7 +17,7 @@ export class AuthService {
       this.userAuthenticated = false;
     }else{
       this.userAuthenticated = true;
-      this.router.navigate(['/question']);
+      this.router.navigate(['/question']);      
     }
   }
 
