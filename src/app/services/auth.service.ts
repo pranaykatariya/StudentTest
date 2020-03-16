@@ -45,4 +45,11 @@ export class AuthService {
       }
     }, error => console.error(error));
   }
+
+
+  logoutUser()
+  {
+    sessionStorage.clear();
+    this.userAuthenticated = false;
+  }
 }
