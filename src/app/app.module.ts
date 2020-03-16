@@ -25,6 +25,8 @@ import { CommonURLService } from './services/common-url.service';
 import { StudentService } from './services/student.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard-service.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { AuthGuardService } from './services/auth-guard-service.service';
     ResultComponent,
     CommunicationComponent,
     TimerComponent,
-    WritingComponent
+    WritingComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

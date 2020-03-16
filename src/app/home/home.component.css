@@ -1,0 +1,24 @@
+
+#login-box
+{
+    position: relative;
+    margin:  auto;
+    height: auto;
+    width: auto;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    background-image: url(C:\Users\HP\routing-intro\src\assets\mulgi.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.left-box
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 60px;
+    width: 1200px;
+    height: 1200px;    
+}
