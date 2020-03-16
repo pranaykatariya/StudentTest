@@ -40,7 +40,7 @@ export class QuestionComponent implements OnInit {
     this.optionD = this.aptitudeService.questions[0].optionD;
     this.no=0;
 
-    },1000);
+    },1500);
 
 
     //This method will use to timeout from the given exam module
@@ -56,7 +56,7 @@ export class QuestionComponent implements OnInit {
 
       console.log("Time over");
       this.router.navigate(['/home']); 
-      },10000);
+      },100000);
 
   }
 

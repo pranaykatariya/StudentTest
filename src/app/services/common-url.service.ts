@@ -5,10 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class CommonURLService {
 
-  technicalQuestion: string  = "http://localhost:8090/getTechnicalQuestions";
-  storeTechnicalMarks: string = "http://localhost:8090/storeTechnnicalMarks";
-  signUpStudent: string = "http://localhost:8090/createStudent";
-  loginStudent: string = "http://localhost:8090/students/";
+  //baseUrl: string = "https://restpsp.herokuapp.com/"
+  technicalQuestion: string  = "https://restpsp.herokuapp.com/getTechnicalQuestions";
+  storeTechnicalMarks: string = "https://restpsp.herokuapp.com/storeTechnnicalMarks";
+  signUpStudent: string = "https://restpsp.herokuapp.com/createStudent";
+  loginStudent: string = "https://restpsp.herokuapp.com/students/";
   
 
   constructor() { }

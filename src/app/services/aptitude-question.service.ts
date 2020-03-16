@@ -11,7 +11,7 @@ import { CommonURLService } from './common-url.service';
 export class AptitudeQuestionService {
 
   
-  public questions: Aptitude[];
+  public questions: Aptitude[] = [];
   public aptitudeResponse: Response[] = [];
   
 
