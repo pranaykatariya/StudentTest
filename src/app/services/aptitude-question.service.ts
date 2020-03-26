@@ -1,8 +1,6 @@
 import { Injectable} from '@angular/core';
 import { Aptitude } from 'src/models/aptitude.model';
 import { HttpClient } from '@angular/common/http';
-import { Response } from 'src/models/Response.model';
-import { CommonURLService } from './common-url.service';
 
 
 @Injectable({
@@ -11,14 +9,11 @@ import { CommonURLService } from './common-url.service';
 export class AptitudeQuestionService {
 
   
-  public questions: Aptitude[] = [];
-  public aptitudeResponse: Response[] = [];
+  public questions: Aptitude[];
   
+  constructor(private http: HttpClient) { 
 
-
-  constructor(private http: HttpClient, private url: CommonURLService) { 
-    
-    this.http.get<Aptitude[]>(url.technicalQuestion).subscribe((result) => {
+    this.http.get<Aptitude[]>('http://localhost:8090/getTechnicalQuestions').subscribe((result) => {
     //console.log(result);  
     this.questions = result;
   }, error => console.error(error));
@@ -28,20 +23,15 @@ export class AptitudeQuestionService {
   }
 
 
-  // getAptitudeQuestion(no: number): Aptitude
-  // {
-  //   console.log("service");
-  //   console.log(this.questions);
-  //   return this.questions[no];
-  // }
-
-  calculateAptitudeMarks()
+  getAptitudeQuestion(no: number): Aptitude
   {
-    this.http.post<Response[]>( this.url.storeTechnicalMarks, this.aptitudeResponse)
-        .subscribe( data =>
-        {
-          console.log(data);
-          alert("Marks of aptitude sent to the server successfully");
-        });
+    console.log("service");
+    console.log(this.questions);
+    return this.questions[no];
+  }
+
+  calculateAptitudeMarks(): Aptitude[]
+  {
+    return this.questions.slice();
   }
 }

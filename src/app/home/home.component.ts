@@ -13,6 +13,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+    this.http
+      .get('http://localhost:8090/getTechnicalQuestions')
+      .subscribe(
+        responseData =>{
+        console.log(responseData)        
+      })
       
   }
 

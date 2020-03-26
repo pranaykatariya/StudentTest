@@ -11,7 +11,6 @@ import { InstructionComponent } from './instruction/instruction.component';
 import { ResultComponent } from './result/result.component';
 import { CommunicationComponent } from './communication/communication.component';
 import { WritingComponent } from './writing/writing.component';
-import { AuthGuardService as AuthGuard } from './services/auth-guard-service.service';
 
 
 
@@ -25,7 +24,7 @@ const routes: Routes = [
 {path: 'instruction', component: InstructionComponent},
 {path: 'result', component: ResultComponent},
 {path: 'admin', component: AdminComponent},
-{path: 'question', component: QuestionComponent, canActivate: [AuthGuard]},
+{path: 'question', component: QuestionComponent},
 {path: 'communication', component: CommunicationComponent},
 {path: 'writing', component: WritingComponent},
 {path: '**', component: PageNotFoundComponent}

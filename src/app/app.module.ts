@@ -21,12 +21,8 @@ import { CommunicationComponent } from './communication/communication.component'
 import { TimerComponent } from './timer/timer.component';
 import { WritingComponent } from './writing/writing.component';
 import { FormStyle } from '@angular/common';
-import { CommonURLService } from './services/common-url.service';
-import { StudentService } from './services/student.service';
-import { AuthService } from './services/auth.service';
-import { AuthGuardService } from './services/auth-guard-service.service';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -46,8 +42,8 @@ import { FooterComponent } from './footer/footer.component';
     CommunicationComponent,
     TimerComponent,
     WritingComponent,
-    HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -56,11 +52,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule
   ],
   providers: [
-    AptitudeQuestionService,
-    CommonURLService,
-    StudentService,
-    AuthService,
-    AuthGuardService
+    AptitudeQuestionService
   ],
   bootstrap: [AppComponent]
 })
