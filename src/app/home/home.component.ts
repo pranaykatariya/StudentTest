@@ -12,14 +12,8 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    console.log("Home loaded");
 
-    this.http
-      .get('http://localhost:8090/getTechnicalQuestions')
-      .subscribe(
-        responseData =>{
-        console.log(responseData)        
-      })
-      
   }
 
 }

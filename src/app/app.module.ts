@@ -23,6 +23,10 @@ import { WritingComponent } from './writing/writing.component';
 import { FormStyle } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { CommonURLService } from './services/common-url.service';
+import { StudentService } from './services/student.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -52,7 +56,11 @@ import { HeaderComponent } from './header/header.component';
     FormsModule
   ],
   providers: [
-    AptitudeQuestionService
+    AptitudeQuestionService,
+    CommonURLService,
+    StudentService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

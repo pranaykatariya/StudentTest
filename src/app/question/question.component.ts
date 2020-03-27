@@ -36,7 +36,7 @@ export class QuestionComponent implements OnInit {
     this.optionC = this.aptitudeService.questions[0].optionC;
     this.optionD = this.aptitudeService.questions[0].optionD;
     this.no=0;
-    },1000);
+    },2000);
   }
 
   loadNextQuestion()
