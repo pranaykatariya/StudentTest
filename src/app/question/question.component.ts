@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Aptitude } from 'src/models/aptitude.model';
 import { AptitudeQuestionService } from '../services/aptitude-question.service';
+import { Router } from '@angular/router';
+import { Response } from 'src/models/Response.model';
 
 @Component({
   selector: 'app-question',
@@ -14,10 +16,11 @@ export class QuestionComponent implements OnInit {
   private optionB: string;
   private optionC: string;
   private optionD: string;
+  private checkedOptions: string[] = [];
 
   private no: number;
 
-  constructor(private aptitudeService: AptitudeQuestionService) { 
+  constructor(private aptitudeService: AptitudeQuestionService, private router: Router) {
     
   }
 
@@ -36,7 +39,25 @@ export class QuestionComponent implements OnInit {
     this.optionC = this.aptitudeService.questions[0].optionC;
     this.optionD = this.aptitudeService.questions[0].optionD;
     this.no=0;
-    },2000);
+
+    },3000);
+
+
+    //This method will use to timeout from the given exam module
+    setTimeout(() => {
+      for (let index = 0; index < this.aptitudeService.questions.length; index++) {
+        this.aptitudeService.aptitudeResponse.push(new Response(this.aptitudeService.questions[index].correctOption,this.checkedOptions[index]));
+      }
+
+      //send data to the server 
+      this.aptitudeService.calculateAptitudeMarks();
+
+      console.log(this.aptitudeService.aptitudeResponse);
+
+      console.log("Time over");
+      this.router.navigate(['/home']); 
+      },100000);
+
   }
 
   loadNextQuestion()
