@@ -27,6 +27,8 @@ import { CommonURLService } from './services/common-url.service';
 import { StudentService } from './services/student.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { CommunicationQuestionService } from './services/communication-question.service';
+import { TechnicalQuestionService } from './services/technical-question.service';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import { AuthGuardService } from './services/auth-guard.service';
   ],
   providers: [
     AptitudeQuestionService,
+    CommunicationQuestionService,
+    TechnicalQuestionService,
     CommonURLService,
     StudentService,
     AuthService,
