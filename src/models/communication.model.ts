@@ -1,4 +1,4 @@
-export class communication {
+export class Communication {
     public id: number;
     public question: string;
     public optionA: string;

@@ -11,6 +11,8 @@ import { InstructionComponent } from './instruction/instruction.component';
 import { ResultComponent } from './result/result.component';
 import { CommunicationComponent } from './communication/communication.component';
 import { WritingComponent } from './writing/writing.component';
+import { TechnicalComponent } from './technical/technical.component';
+import { AptitudeComponent } from './aptitude/aptitude.component';
 
 
 
@@ -27,6 +29,8 @@ const routes: Routes = [
 {path: 'question', component: QuestionComponent},
 {path: 'communication', component: CommunicationComponent},
 {path: 'writing', component: WritingComponent},
+{path: 'aptitude', component: AptitudeComponent},
+{path: 'technical', component: TechnicalComponent},
 {path: '**', component: PageNotFoundComponent}
 
 ];

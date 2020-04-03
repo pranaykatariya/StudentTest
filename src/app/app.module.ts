@@ -29,6 +29,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CommunicationQuestionService } from './services/communication-question.service';
 import { TechnicalQuestionService } from './services/technical-question.service';
+import { AptitudeComponent } from './aptitude/aptitude.component';
+import { TechnicalComponent } from './technical/technical.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { TechnicalQuestionService } from './services/technical-question.service'
     TimerComponent,
     WritingComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    AptitudeComponent,
+    TechnicalComponent
   ],
   imports: [
     BrowserModule,

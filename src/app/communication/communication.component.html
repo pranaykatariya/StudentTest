@@ -1,66 +1,74 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 
 <app-navigation></app-navigation>
 <app-timer></app-timer>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<div class="container-fluid bg-info">
+<div class="container-fluid">
+
     <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h3><span class="label label-warning" id="qid">1</span> Which of the following is keyword is not access modifier</h3>
+            <h3><span class="label label-warning" id="qid">{{no+1}}</span>{{ question }}</h3>
         </div>
         <div class="modal-body">
             <div class="col-xs-3 col-xs-offset-5">
                <div id="loadbar" style="display: none;">
-                  <div class="blockG" id="rotateG_01"></div>
-                  <div class="blockG" id="rotateG_02"></div>
-                  <div class="blockG" id="rotateG_03"></div>
-                  <div class="blockG" id="rotateG_04"></div>
-                  <div class="blockG" id="rotateG_05"></div>
-                  <div class="blockG" id="rotateG_06"></div>
-                  <div class="blockG" id="rotateG_07"></div>
-                  <div class="blockG" id="rotateG_08"></div>
+                  <div class="blockG"></div>
+                  <div class="blockG"></div>
+                  <div class="blockG"></div>
+                  <div class="blockG"></div>
+                  <div class="blockG"></div>
+                  <div class="blockG"></div>
+                  <div class="blockG"></div>
+                  <div class="blockG"></div>
+               </div>
               </div>
-          </div>
 
           <div class="quiz" id="quiz" data-toggle="buttons">
-           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">1 Public</label>
-           <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Private</label>
-           <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">3 Static</label>
-           <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Protected</label>
+           <label class="element-animation1 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1" [(ngModel)]="checkedOptions[no]">{{optionA}}</label>
+           <label class="element-animation2 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2" [(ngModel)]="checkedOptions[no]">{{optionB}}</label>
+           <label class="element-animation3 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3" [(ngModel)]="checkedOptions[no]">{{optionC}}</label>
+           <label class="element-animation4 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4" [(ngModel)]="checkedOptions[no]">{{optionD}}</label>
+          </div>
        </div>
-   </div>
-   <div class="modal-footer text-muted">
-    <span id="answer"></span>
+   
+        <span id="answer"></span>
+      </div>
+    </div>
 </div>
+
+<div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a style="cursor: pointer;" class="page-link" (click) = "loadPreviousQuestion()" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+
+          <li class="page-item" 
+          *ngFor="let item of this.communicationService.questions; let i = index"
+          class="page-item"
+          [ngClass]="{
+            'page-item active':i === no
+          }"
+          [attr.data-index]="i">
+            <a class="page-link" style="cursor: pointer;" (click) = "loadCustomQuestion(i)"><td>{{ i + 1 }}</td></a></li>          
+         
+         
+          <li class="page-item">
+            <a style="cursor: pointer;" class="page-link" (click) ="loadNextQuestion()" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 </div>
-</div>
-</div>
-<div class="container que-box">
-    <table class="table table-success">
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-        </tr>
-    </table>
-  </div>
 
 <div class="navbar">
-    <a routerLink ="/home">Previous</a>    
-    <a routerLink ="/result">Next</a>
+    <a style="cursor: pointer;" (click) = "loadPreviousQuestion()">Previous</a>    
+    <a style="cursor: pointer;" (click) ="loadNextQuestion()">Next</a>
 </div>
-<app-footer></app-footer>
