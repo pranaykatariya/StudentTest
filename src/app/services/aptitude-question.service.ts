@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Response } from 'src/models/Response.model';
 import { CommonURLService } from './common-url.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +17,7 @@ export class AptitudeQuestionService {
 
   constructor(private http: HttpClient, private url: CommonURLService) { 
     
-    this.http.get<Aptitude[]>(url.technicalQuestion).subscribe((result) => {
+    this.http.get<Aptitude[]>(url.aptitudeQuestion).subscribe((result) => {
     //console.log(result);  
     this.questions = result;
   }, error => console.error(error));
@@ -37,7 +36,7 @@ export class AptitudeQuestionService {
 
   calculateAptitudeMarks()
   {
-    this.http.post<Response[]>( this.url.storeTechnicalMarks, this.aptitudeResponse)
+    this.http.post<Response[]>( this.url.storeAptitudeMarks, this.aptitudeResponse)
         .subscribe( data =>
         {
           console.log(data);

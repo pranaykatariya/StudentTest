@@ -15,7 +15,7 @@ export class CommunicationQuestionService {
 
 
   constructor(private http: HttpClient, private url: CommonURLService) { 
-    this.http.get<Communication[]>(url.technicalQuestion).subscribe((result) => {
+    this.http.get<Communication[]>(url.communicationQuestion).subscribe((result) => {
       //console.log(result);  
       this.questions = result;
   }, error => console.error(error));
@@ -32,7 +32,7 @@ export class CommunicationQuestionService {
 
   calculateCommunicationMarks()
   {
-    this.http.post<Response[]>( this.url.storeTechnicalMarks, this.communicationResponse)
+    this.http.post<Response[]>( this.url.storeCommunicationMarks, this.communicationResponse)
         .subscribe( data =>
         {
           console.log(data);
