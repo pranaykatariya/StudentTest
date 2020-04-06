@@ -4,7 +4,30 @@
         <div class="left-box">
           <h1> Sign Up</h1>
             
-            <input type="text" name="firstname" placeholder="First Name"/>
+          <form class="form" #registerForm="ngForm"
+          (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate>
+
+
+              <input type="text" id="firstname" class="form-control" required minlength="4" name="firstname" placeholder="First Name"
+              [(ngModel)]="student.firstname" #firstname="ngModel"/>
+
+            <!-- <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="text-danger">
+
+              <div *ngIf="firstname.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="firstname.errors.minlength">
+                Name must be at least 4 characters long.
+              </div>
+              
+               </div> -->
+               <span class="text-danger"
+                  *ngIf="(firstname.touched || registerForm.submitted) && firstname.errors?.required">
+                  Name is required
+              </span>
+
+            
+            
             <input type="text" name="lastname" placeholder="Last Name"/>
            <input type="text" name="email" placeholder="Email"/>
            <input type="text" name="mobileno" placeholder="Mobile Number"/>
@@ -26,7 +49,13 @@
             <input type="text" name="10thres" placeholder="12th Result in %"/>
             <input type="text" name="10thres" placeholder="Maths Marks of 12th"/>
           
-            <input type="submit" name="signup-button" routerLink ="/login" value="Sign Up"/>
+            
+
+
+            
+              <input type="submit" class="btn btn-success" value="signup">
+            
+          </form>
           
           </div>
           <div class="right-box">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Student } from 'src/models/student.model';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+
+  student = new Student();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit()
+  {
+    alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+    console.table(this.student);
   }
 
 }
