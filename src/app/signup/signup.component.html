@@ -11,16 +11,6 @@
               <input type="text" id="firstname" class="form-control" required minlength="4" name="firstname" placeholder="First Name"
               [(ngModel)]="student.firstname" #firstname="ngModel"/>
 
-            <!-- <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="text-danger">
-
-              <div *ngIf="firstname.errors.required">
-                Name is required.
-              </div>
-              <div *ngIf="firstname.errors.minlength">
-                Name must be at least 4 characters long.
-              </div>
-              
-               </div> -->
                <span class="text-danger"
                   *ngIf="(firstname.touched || registerForm.submitted) && firstname.errors?.required">
                   Name is required
