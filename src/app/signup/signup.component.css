@@ -1,8 +1,3 @@
-error-validation{
-    text-align: center;
-}
-
-
 body
 {
     margin: 0;
@@ -14,14 +9,17 @@ body
     font-weight: 300;
 }
 
-#login-box
+.container
 {
     position: relative;
-    margin: 0.5% auto;
-    height: 760px;
-    width: 800px;
+    margin: auto;
+    height: 770px;
+    width:620px;
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    background-image: url(../../assets/image1.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
 }
 
 .left-box
@@ -32,8 +30,7 @@ body
     box-sizing: border-box;
     padding: 60px;
     width: 1200px;
-    /* height: 1200px;     */
-    margin-bottom: 20px;
+    height: 1200px;    
 }
 
 h1
@@ -61,7 +58,7 @@ input[type="password"]
     transition: 0.2s ease;
 }
 
-input[type="submit"]
+button[type="submit"]
 {
     margin-bottom: 28px;
     width: 120px;
@@ -91,64 +88,14 @@ input[type="submit"]:focus
     top: 0;
     right: 0;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 120px;
     width: 400px;
-    height: 760px;
-    background-image: url(../../assets/image1.jpg);
-    background-size: cover;
-    background-position: center;
+    height: 700px;
 }
 
-.or
-{
-    position: absolute;
-    top: 350px;
-    left: 380px;
-    width: 40px;
-    height: 40px;
-    background: #efefef;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-    line-height: 40px;
-    text-align: center;
-}
-
-.right-box .signinwith
-{
-    display: block;
-    margin-bottom: 40px;
-    font-size: 28px;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-
-button.social
-{
-    margin-bottom: 20px;
-    width: 220px;
-    height: 36px;
-    border: none;
-    border-radius: 2px;
-    color: #fff;
-    font-family: sans-serif;
-    font-weight: 500;
-    transition: 0.2s ease;
-    cursor: pointer;
-}
-
-.facebook
-{
-    background: #32508e;
-}
-.twitter
-{
-    background: #55acee;
-}
-.google
-{
-    background: #dd4b39;
-}
-
-
+.success{
+    border: 1px solid greenyellow;
+    }
+    .text-error{
+        color: red;
+    }

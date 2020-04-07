@@ -5,6 +5,7 @@ export class Student {
   public email: string;
   public mobile: string;
   public password: string;
+  public confirmpassword: string;
   public gender: string;
   public sscPercentage: number;
   public sscMath: number;

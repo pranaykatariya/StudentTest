@@ -1,15 +1,37 @@
 <app-header></app-header>
        <div id="login-box">
+        <form class="form" #registerForm="ngForm"
+        (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate>
+        `
         <div class="left-box">
-          <h1> Login</h1>
-          <form>
-           <p>Username</p>
-           <input type="text" name="" placeholder="Enter Username">
-           <p>Password</p>
-           <input type="password" name="" placeholder="Enter Password">
-           <input type="submit" name="" routerLink ="/instruction" value="Login"><br>
+        <h1> Login</h1>
          
+          <div class="form-group">
+          <label>User Name</label>
+          <input type="text" id="name" class="form-control" required minlength="4" name="name"
+          [(ngModel)]="login.name" #name="ngModel"/>
+          </div>
+  
+          <span class="text-danger"
+          *ngIf="(name.touched || registerForm.submitted) && name.errors?.required">
+          Name is required
+          </span>
+
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" class="form-control" required minlength="4" name="passwrord"
+            [(ngModel)]="login.password" #password="ngModel"/>
+            </div>
+     
+            <span class="text-danger"
+            *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
+            Password is required
+            </span><br>
+
+           <input type="submit" class="btn-btn-success" value="Login"><br>
            <a routerLink ="/signup">Don't have an account?</a>
-       </form>
+           </div>
+           </form>
           </div>
 <app-footer></app-footer>

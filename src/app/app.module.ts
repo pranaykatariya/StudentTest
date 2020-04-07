@@ -33,6 +33,7 @@ import { AptitudeComponent } from './aptitude/aptitude.component';
 import { TechnicalComponent } from './technical/technical.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { TechnicalComponent } from './technical/technical.component';
     FooterComponent,
     HeaderComponent,
     AptitudeComponent,
-    TechnicalComponent
+    TechnicalComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,63 +1,137 @@
-
 <app-header></app-header>
-       <div id="login-box">
+       <div class="container">
+        <form class="form" #registerForm="ngForm"
+        (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate>
+
         <div class="left-box">
-          <h1> Sign Up</h1>
-            
-          <form class="form" #registerForm="ngForm"
-          (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate>
-
-
-              <input type="text" id="firstname" class="form-control" required minlength="4" name="firstname" placeholder="First Name"
-              [(ngModel)]="student.firstname" #firstname="ngModel"/>
-
-               <span class="text-danger"
-                  *ngIf="(firstname.touched || registerForm.submitted) && firstname.errors?.required">
-                  Name is required
-              </span>
-
-            
-            
-            <input type="text" name="lastname" placeholder="Last Name"/>
-           <input type="text" name="email" placeholder="Email"/>
-           <input type="text" name="mobileno" placeholder="Mobile Number"/>
-
-            <input type="password" name="password" placeholder="Password"/>
-          
-            <input type="password" name="password2" placeholder="Retype password"/>
-           <label>Gender</label>
-            <div class="form-group row">
-                  
-                    <input type="radio"  id="gender" value="male" size="10">Male
-                  
-                    <input type="radio"  id="gender" value="male" size="10">Female
-                  
-                </div>
-                
-            <input type="text" name="10thres" placeholder="10th Result in %"/>
-            <input type="text" name="10thmaths" placeholder="Maths Marks of 10th"/>
-            <input type="text" name="10thres" placeholder="12th Result in %"/>
-            <input type="text" name="10thres" placeholder="Maths Marks of 12th"/>
-          
-            
-
-
-            
-              <input type="submit" class="btn btn-success" value="signup">
-            
-          </form>
-          
-          </div>
-          <div class="right-box">
-            <span class="signinwith">Sign in with<br/>Social Network     </span>
-          
-          <button class="social facebook">Log in with Facebook</button>    
-          <button class="social twitter">Log in with Twitter</button> 
-          <button class="social google">Log in with Google+</button> 
+            <h1> Sign Up</h1>
               
+            
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" id="firstname" class="form-control" required minlength="4" name="firstname"
+                [(ngModel)]="student.firstname" #firstname="ngModel"/>
+                </div>
+        
+                <span class="text-danger"
+                *ngIf="(firstname.touched || registerForm.submitted) && firstname.errors?.required">
+                First Name is required
+                </span>
+        
+                  
+               <div class="form-group">
+               <label>Last Name</label>
+               <input type="text" id="lastname" class="form-control" required minlength="4" name="lastname" 
+               [(ngModel)]="student.lastname" #lastname="ngModel"/>
+               </div>
+        
+               <span class="text-danger"
+               *ngIf="(lastname.touched || registerForm.submitted) && lastname.errors?.required">
+               Last Name is required
+               </span>
+        
+               <div class="form-group">
+                <label>Email</label>
+                <input type="text" required id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                 ngModel #email="ngModel" class="form-control" [class.success]="!email.invalid">
+                 <div *ngIf="email.errors &&(email.touched || email.dirty)" class ="text-error">
+                      Valid Email required
+                   </div>
+               </div>
+        
+               <div class="form-group">
+               <label>Mobile Number</label>
+               <input type="text" id="mobno" class="form-control" required maxlength="10" name="mobno"
+               [(ngModel)]="student.mobno" #mobno="ngModel"/>
+               </div>
+        
+               <span class="text-danger"
+               *ngIf="(mobno.touched || registerForm.submitted) && mobno.errors?.required">
+               Mobile Number is required
+               </span>
+        
+               <div class="form-group">    
+                <label>Password</label>    
+                <input type="password" id="password" class="form-control" [(ngModel)]="student.password" name="password"    
+                    #password="ngModel" required>    
+                <span class="text-danger"    
+                    *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">    
+                    Password is required    
+                </span> 
+                </div>   
+                <div class="form-group">    
+                    <label>Confirm Password</label>    
+                    <input type="password" id="confirmpassword" class="form-control" [(ngModel)]="student.confirmPassword"    
+                        name="confirmPassword" #confirmPassword="ngModel" required>    
+                    <span class="text-danger"    
+                        *ngIf="(confirmPassword.touched || registerForm.submitted) && confirmPassword.errors?.required">    
+                        Confirm Password is required    
+                    </span> 
+                    <span
+                        *ngIf="student.password !== student.confirmPassword">
+                        Passwords does not match
+                    </span>       
+                </div>    
+
+  </div>       
           
-          </div>
-          <div class="or">OR</div>
-      </div>
-      <app-footer></app-footer>
+          
+<div class="right-box">
+           
+    <label>Gender:</label>
+    <div class="form-group row">
+        <input type="radio"  id="gender" value="male" size="10">Male      
+        <input type="radio"  id="gender" value="male" size="10">Female   
+        </div>
+            
+        <div class="form-group">
+        <label>10th Result in %</label>
+        <input type="number" id="result1" class="form-control" required minlength="4" name="result1"
+        [(ngModel)]="student.result1" #result1="ngModel"/>
+        </div>
+            
+        <span class="text-danger"
+        *ngIf="(result1.touched || registerForm.submitted) && result1.errors?.required">
+        10th Result in % is required
+        </span>
+           
+
+        <div class="form-group">
+        <label>Maths Marks of 10th</label>
+        <input type="number" id="maths1" class="form-control" required minlength="4" name="maths1"
+        [(ngModel)]="student.maths1" #maths1="ngModel"/>
+        </div>
+            
+        <span class="text-danger"
+        *ngIf="(maths1.touched || registerForm.submitted) && maths1.errors?.required">
+        Maths marks is required
+        </span>
+
+        <div class="form-group">
+        <label>12th Result in %</label>
+        <input type="number" id="result2" class="form-control" required minlength="4" name="result2"
+        [(ngModel)]="student.result2" #result2="ngModel"/>
+        </div>
+            
+        <span class="text-danger"
+        *ngIf="(result2.touched || registerForm.submitted) && result2.errors?.required">
+        12th Result in % is required
+        </span>
+
+        <div class="form-group">
+        <label>Maths Marks of 12th</label>
+        <input type="number" id="maths2" class="form-control" required minlength="4" name="maths2"
+        [(ngModel)]="student.maths2" #maths2="ngModel"/>
+        </div>
+            
+        <span class="text-danger"
+        *ngIf="(maths2.touched || registerForm.submitted) && maths2.errors?.required">
+        Maths marks is required
+        </span><br>
+            
+    <input type="submit" class="btn btn-success" value="signup">
+     </div>
+    </form>
+    </div>
+<app-footer></app-footer>
   
