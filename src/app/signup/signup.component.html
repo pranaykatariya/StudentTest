@@ -13,7 +13,7 @@
                 [(ngModel)]="student.firstname" #firstname="ngModel"/>
                 </div>
         
-                <span class="text-danger"
+                <span class="text-error"
                 *ngIf="(firstname.touched || registerForm.submitted) && firstname.errors?.required">
                 First Name is required
                 </span>
@@ -25,7 +25,7 @@
                [(ngModel)]="student.lastname" #lastname="ngModel"/>
                </div>
         
-               <span class="text-danger"
+               <span class="text-error"
                *ngIf="(lastname.touched || registerForm.submitted) && lastname.errors?.required">
                Last Name is required
                </span>
@@ -45,7 +45,7 @@
                [(ngModel)]="student.mobno" #mobno="ngModel"/>
                </div>
         
-               <span class="text-danger"
+               <span class="text-error"
                *ngIf="(mobno.touched || registerForm.submitted) && mobno.errors?.required">
                Mobile Number is required
                </span>
@@ -54,7 +54,7 @@
                 <label>Password</label>    
                 <input type="password" id="password" class="form-control" [(ngModel)]="student.password" name="password"    
                     #password="ngModel" required>    
-                <span class="text-danger"    
+                <span class="text-error"    
                     *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">    
                     Password is required    
                 </span> 
@@ -63,7 +63,7 @@
                     <label>Confirm Password</label>    
                     <input type="password" id="confirmpassword" class="form-control" [(ngModel)]="student.confirmPassword"    
                         name="confirmPassword" #confirmPassword="ngModel" required>    
-                    <span class="text-danger"    
+                    <span class="text-error"    
                         *ngIf="(confirmPassword.touched || registerForm.submitted) && confirmPassword.errors?.required">    
                         Confirm Password is required    
                     </span> 
@@ -78,11 +78,22 @@
           
 <div class="right-box">
            
-    <label>Gender:</label>
-    <div class="form-group row">
-        <input type="radio"  id="gender" value="male" size="10">Male      
-        <input type="radio"  id="gender" value="male" size="10">Female   
-        </div>
+    <div class="form-group" [class.has-error]="gender.invalid">
+        <label>Gender</label><br>
+        
+          <label class="radio-inline">
+            <input type="radio" name="gender" required #gender="ngModel"
+                   value="male" [(ngModel)]="student.gender"> Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="gender" required #gender="ngModel"
+                   value="female" [(ngModel)]="student.gender"> Female
+          </label>
+        
+        <span class="text-error" *ngIf="(gender.invalid && gender.touched)">
+          Gender is required
+        </span>
+      </div>
             
         <div class="form-group">
         <label>10th Result in %</label>
@@ -90,7 +101,7 @@
         [(ngModel)]="student.result1" #result1="ngModel"/>
         </div>
             
-        <span class="text-danger"
+        <span class="text-error"
         *ngIf="(result1.touched || registerForm.submitted) && result1.errors?.required">
         10th Result in % is required
         </span>
@@ -102,7 +113,7 @@
         [(ngModel)]="student.maths1" #maths1="ngModel"/>
         </div>
             
-        <span class="text-danger"
+        <span class="text-error"
         *ngIf="(maths1.touched || registerForm.submitted) && maths1.errors?.required">
         Maths marks is required
         </span>
@@ -113,7 +124,7 @@
         [(ngModel)]="student.result2" #result2="ngModel"/>
         </div>
             
-        <span class="text-danger"
+        <span class="text-error"
         *ngIf="(result2.touched || registerForm.submitted) && result2.errors?.required">
         12th Result in % is required
         </span>
@@ -124,7 +135,7 @@
         [(ngModel)]="student.maths2" #maths2="ngModel"/>
         </div>
             
-        <span class="text-danger"
+        <span class="text-error"
         *ngIf="(maths2.touched || registerForm.submitted) && maths2.errors?.required">
         Maths marks is required
         </span><br>

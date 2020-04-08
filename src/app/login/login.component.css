@@ -75,5 +75,7 @@ input[type="submit"]:focus
     background: #ff5722;
     transition: 0.2s ease;
 }
-
+.text-error{
+    color: red;
+}
 
