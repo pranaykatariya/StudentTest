@@ -19,6 +19,7 @@ export class StudentService
     this.http.post<Student>( this.url.signUpStudent,data)
     .subscribe( data =>
     {
+      console.log("student data sent to server")
       console.log(data);
     });
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/models/student.model';
+import { StudentService } from '../services/student.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   student = new Student();
   
 
-  constructor() { }
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
   }
@@ -21,8 +22,14 @@ export class SignupComponent implements OnInit {
 
   onSubmit()
   {
+    console.log(this.student);
     alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-    console.table(this.student);
+    //remove below line once gender validation is done
+    this.student.gender = "male";
+    //remove above line once gender validation is done
+    
+    
+    this.studentService.postStudentDataToServer(this.student);
     
   }
 

@@ -13,6 +13,7 @@ import { CommunicationComponent } from './communication/communication.component'
 import { WritingComponent } from './writing/writing.component';
 import { TechnicalComponent } from './technical/technical.component';
 import { AptitudeComponent } from './aptitude/aptitude.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
 {path: 'signup', component: SignupComponent},
 {path: 'forgot', component: ForgotComponent},
 {path: 'home', component: HomeComponent},
+// {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]}, modify is isAuthenticated method
 {path: 'instruction', component: InstructionComponent},
 {path: 'result', component: ResultComponent},
 {path: 'admin', component: AdminComponent},

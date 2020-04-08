@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    //return this.userAuthenticated;
+    // return this.userAuthenticated;
     return true;
   }
 
