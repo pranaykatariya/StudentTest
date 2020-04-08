@@ -63,7 +63,7 @@
                     <label>Confirm Password</label>    
                     <input type="password" id="confirmpassword" class="form-control" [(ngModel)]="student.confirmPassword"    
                         name="confirmPassword" #confirmPassword="ngModel" required>    
-                    <span class="text-error"    
+                    <div class="text-error"    
                         *ngIf="(confirmPassword.touched || registerForm.submitted) && confirmPassword.errors?.required">    
                         Confirm Password is required    
                     </div> 
@@ -91,8 +91,10 @@
                    value="female" [(ngModel)]="student.gender"> Female
           </label>
         
-        <span class="text-error" *ngIf="(gender.invalid && gender.touched)">
-          Gender is required
+        <span class="text-error" 
+        
+        *ngIf="(gender.touched || registerForm.submitted) && gender.invalid ">
+        Gender is required
         </span>
       </div>
             

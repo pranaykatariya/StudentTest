@@ -22,6 +22,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit()
   {
+    console.log("submit clicked")
     console.log(this.student);
     
     
