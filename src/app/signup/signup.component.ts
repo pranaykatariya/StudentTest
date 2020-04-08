@@ -23,10 +23,6 @@ export class SignupComponent implements OnInit {
   onSubmit()
   {
     console.log(this.student);
-    alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-    //remove below line once gender validation is done
-    this.student.gender = "male";
-    //remove above line once gender validation is done
     
     
     this.studentService.postStudentDataToServer(this.student);
