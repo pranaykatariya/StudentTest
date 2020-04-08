@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   onSubmit()
   {
     alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-    console.table(this.login);
+    console.log(this.login);
   }
 
 }
