@@ -12,7 +12,7 @@
           [(ngModel)]="login.name" #name="ngModel"/>
           </div>
   
-          <span class="text-danger"
+          <span class="text-error"
           *ngIf="(name.touched || registerForm.submitted) && name.errors?.required">
           Name is required
           </span>
@@ -24,7 +24,7 @@
             [(ngModel)]="login.password" #password="ngModel"/>
             </div>
      
-            <span class="text-danger"
+            <span class="text-error"
             *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
             Password is required
             </span><br>
