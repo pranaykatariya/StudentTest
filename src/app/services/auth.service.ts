@@ -3,6 +3,7 @@ import { CommonURLService } from './common-url.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Student } from 'src/models/student.model';
+import { combineLatest } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class AuthService {
   authenticateUser(email: string,password: string)
   {
     this.http.get<Student>(this.url.loginStudent.concat(email)).subscribe((result) => {
-      
+      console.log(result)
       if(password === result.password)
       {
         this.userAuthenticated = true;
