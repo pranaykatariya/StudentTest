@@ -31,6 +31,7 @@ import { CommunicationQuestionService } from './services/communication-question.
 import { TechnicalQuestionService } from './services/technical-question.service';
 import { AptitudeComponent } from './aptitude/aptitude.component';
 import { TechnicalComponent } from './technical/technical.component';
+import { MyChartComponent } from './Components/my-chart/my-chart.component';
 
 
 
@@ -55,6 +56,7 @@ import { TechnicalComponent } from './technical/technical.component';
     HeaderComponent,
     AptitudeComponent,
     TechnicalComponent,
+    MyChartComponent,
     
   ],
   imports: [
