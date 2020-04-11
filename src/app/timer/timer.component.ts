@@ -1,45 +1,78 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonURLService } from '../services/common-url.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+export class TimerComponent implements OnInit, OnDestroy {
 
   
-// Set the date we're counting down to
-var countDownDate = new Date().getTime() + 15 * 60 * 1000;
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for hours, minutes and seconds
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("timer").innerHTML =  hours + ":"
-  + minutes + ":" + seconds;
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("timer").innerHTML = "EXPIRED";
-  }
-}, 1000);
-
+  constructor(private commonURL: CommonURLService, private router:Router)
+  {
+    
   }
 
+  intervalId;
+  message;
+  seconds;
+  minute;
+
+  clearTimer() { clearInterval(this.intervalId); }
+
+  ngOnInit()    { 
+    this.intervalId = 0;
+    this.message = '';
+    this.seconds = 0;
+    this.getTime();
+    this.start(); 
+  }
+  
+  ngOnDestroy() { this.clearTimer(); }
+
+
+
+  getTime() {
+    if(this.router.url === this.commonURL.communicationURL)
+    {
+      this.minute = this.commonURL.communicationTime;
+    }else if (this.router.url === this.commonURL.technicalURL) {
+      this.minute = this.commonURL.technicalTime;
+    } else if (this.router.url === this.commonURL.writingURL) {
+      this.minute = this.commonURL.writingTime;
+    } else if (this.router.url === this.commonURL.aptitudeURL) {
+      this.minute = this.commonURL.aptitudeTime;
+    } else {
+      this.minute = this.commonURL.communicationTime;
+    } 
+  }
+
+
+  start() { this.countDown(); }
+  stop()  {
+    this.clearTimer();
+  }
+
+  private countDown() {
+    this.clearTimer();
+    this.intervalId = window.setInterval(() => {
+
+    if(this.minute == 0)
+    {
+      this.stop;
+    }
+     if (this.seconds === 0) {
+        this.minute--;
+        this.seconds = 59;
+        this.message = this.minute+':'+this.seconds;
+      } else {
+        this.seconds--;
+        this.message = this.minute+':'+this.seconds;
+      }
+    }, 1000);
+  }
 }
