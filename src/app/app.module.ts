@@ -33,6 +33,10 @@ import { TechnicalQuestionService } from './services/technical-question.service'
 import { AptitudeComponent } from './aptitude/aptitude.component';
 import { TechnicalComponent } from './technical/technical.component';
 import { MyChartComponent } from './Components/my-chart/my-chart.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 
@@ -58,6 +62,10 @@ import { MyChartComponent } from './Components/my-chart/my-chart.component';
     AptitudeComponent,
     TechnicalComponent,
     MyChartComponent,
+    AdminLoginComponent,
+    CarouselComponent,
+    ProfileComponent,
+    
     
   ],
   imports: [
