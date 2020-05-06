@@ -17,6 +17,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { CarouselComponent } from './carousel/carousel.component'
 import { ProfileComponent } from './profile/profile.component';
+import {TipsComponent} from './tips/tips.component';
+
 
 
 
@@ -39,6 +41,7 @@ const routes: Routes = [
 {path: 'admin-login', component: AdminLoginComponent},
 {path: 'carousel', component: CarouselComponent},
 {path: 'profile', component:ProfileComponent},
+{path: 'tips',component:TipsComponent},
 {path: '**', component: PageNotFoundComponent}
 
 

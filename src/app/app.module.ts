@@ -36,6 +36,7 @@ import { MyChartComponent } from './Components/my-chart/my-chart.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProfileComponent } from './profile/profile.component';
+import {TipsComponent} from './tips/tips.component';
 
 
 
@@ -65,8 +66,9 @@ import { ProfileComponent } from './profile/profile.component';
     AdminLoginComponent,
     CarouselComponent,
     ProfileComponent,
+    TipsComponent,
     
-    
+  
     
   ],
   imports: [
