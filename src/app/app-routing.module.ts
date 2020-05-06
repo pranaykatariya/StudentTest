@@ -14,6 +14,9 @@ import { WritingComponent } from './writing/writing.component';
 import { TechnicalComponent } from './technical/technical.component';
 import { AptitudeComponent } from './aptitude/aptitude.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { CarouselComponent } from './carousel/carousel.component'
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -33,7 +36,11 @@ const routes: Routes = [
 {path: 'writing', component: WritingComponent},
 {path: 'aptitude', component: AptitudeComponent},
 {path: 'technical', component: TechnicalComponent},
+{path: 'admin-login', component: AdminLoginComponent},
+{path: 'carousel', component: CarouselComponent},
+{path: 'profile', component:ProfileComponent},
 {path: '**', component: PageNotFoundComponent}
+
 
 ];
 

@@ -1,0 +1,11 @@
+.container
+{
+    position: relative;
+    margin: auto;
+    padding-left: 10%;
+    padding-right: 5%;
+    height: 500px;
+    width: 650;
+    background-repeat:no-repeat;
+    background-size: cover;
+}  
