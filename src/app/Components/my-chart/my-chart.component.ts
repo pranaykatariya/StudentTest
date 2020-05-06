@@ -6,7 +6,7 @@ import { Chart } from 'node_modules/chart.js';
   templateUrl: './my-chart.component.html',
   styleUrls: ['./my-chart.component.css']
 })
-export class MyChartComponent implements OnInit
+export class MyChartComponent implements OnInit 
  {
 
   constructor() { }
