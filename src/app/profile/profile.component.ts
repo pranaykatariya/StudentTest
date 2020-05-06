@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  email: string;
+  firstName: string;
+  lastName: string;
+  mobile: string;
+  
   constructor() { }
 
   ngOnInit() {
+
+
+    this.email = sessionStorage.getItem('email');
+    this.firstName = sessionStorage.getItem('firstName');
+    this.lastName = sessionStorage.getItem('lastName');
+    this.mobile = sessionStorage.getItem('mobile');
+    
+    
   }
 
 }
