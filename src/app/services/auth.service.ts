@@ -31,11 +31,10 @@ export class AuthService {
 
   authenticateUser(email: string,password: string)
   {
-    
-
     this.http.get<Student>(this.url.loginStudent.concat(email)).subscribe((result) => {
       console.log(result)
-      if(password === result.password)
+      try {
+        if(password === result.password)
       {
         this.userAuthenticated = true;
         sessionStorage.setItem("email",result.email);
@@ -48,9 +47,11 @@ export class AuthService {
       }else
       {
         this.userAuthenticated = false;
-        
-
-        this.message = "Wrong username or password";
+        this.message = "Invalid username or password";
+      }
+      } catch (error) {
+        this.userAuthenticated = false;
+        this.message = "Invalid username or password";
       }
     }, error => console.error(error));
   }

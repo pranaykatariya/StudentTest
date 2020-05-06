@@ -29,7 +29,7 @@ export class StudentService
       
       console.log(this.serverResponse.message)
       // if(this.serverResponse.message)
-      
+      this.router.navigate(['/login']);
       console.log(data);
     });
   }
