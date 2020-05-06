@@ -32,19 +32,34 @@ export class CommonURLService {
 
   
 
-  aptitudeQuestion: string  = "http://localhost:8090/getAptitudeQuestions";
-  storeAptitudeMarks: string = "http://localhost:8090/storeAptitudeMarks";
+  // aptitudeQuestion: string  = "http://localhost:8090/getAptitudeQuestions";
+  // storeAptitudeMarks: string = "http://localhost:8090/storeAptitudeMarks";
 
 
-  technicalQuestion: string  = "http://localhost:8090/getTechnicalQuestions";
-  storeTechnicalMarks: string = "http://localhost:8090/storeTechnnicalMarks";
+  // technicalQuestion: string  = "http://localhost:8090/getTechnicalQuestions";
+  // storeTechnicalMarks: string = "http://localhost:8090/storeTechnnicalMarks";
 
-  communicationQuestion: string = "http://localhost:8090/getCommunicationQuestions";
-  storeCommunicationMarks: string = "http://localhost:8090/storeCommunicationMarks";
+  // communicationQuestion: string = "http://localhost:8090/getCommunicationQuestions";
+  // storeCommunicationMarks: string = "http://localhost:8090/storeCommunicationMarks";
 
 
-  signUpStudent: string = "http://localhost:8090/createStudent";
-  loginStudent: string = "http://localhost:8090/students/";
+  // signUpStudent: string = "http://localhost:8090/createStudent";
+  // loginStudent: string = "http://localhost:8090/students/";
+
+
+  technicalQuestion: string  = "https://restpsp.herokuapp.com/getTechnicalQuestions";
+  storeTechnicalMarks: string = "https://restpsp.herokuapp.com/storeTechnnicalMarks";
+
+
+  aptitudeQuestion: string  = "https://restpsp.herokuapp.com/getAptitudeQuestions";
+  storeAptitudeMarks: string = "https://restpsp.herokuapp.com/storeAptitudeMarks";
+
+  communicationQuestion: string = "https://restpsp.herokuapp.com/getCommunicationQuestions";
+  storeCommunicationMarks: string = "https://restpsp.herokuapp.com/storeCommunicationMarks";
+
+
+  signUpStudent: string = "https://restpsp.herokuapp.com/createStudent";
+  loginStudent: string = "https://restpsp.herokuapp.com/students/";
   
 
   constructor() { 
