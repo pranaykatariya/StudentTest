@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/models/Login.model';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -39,5 +38,4 @@ export class LoginComponent implements OnInit {
     console.log(this.login.password);
     
   }
-
 }
