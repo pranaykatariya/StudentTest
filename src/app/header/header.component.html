@@ -1,0 +1,28 @@
+
+<div class="header">
+  <span *ngIf="this.variable" class="text-white">
+    <a routerLink ="/home">{{ user }}</a>
+  </span>
+  <span *ngIf="!this.variable">
+    <a routerLink ="/home">Home</a>
+  </span>
+  <div class="header-right">
+    <a  routerLink ="/login">Login</a>
+    <a routerLink ="/signup">Register</a>
+    <a routerLink ="/profile">Profile</a>
+    <a routerLink ="/instruction">About</a>
+    
+    <div *ngIf="!this.variable" class="header-right">
+      <a  routerLink ="/login">Login</a>
+      <a routerLink ="/signup">Register</a>
+    </div>
+
+    <div class="header-right" *ngIf="this.variable">
+      <a routerLink ="/home"  (click)="logoutuser()">Logout</a>      
+    </div>
+    
+
+
+  </div>
+</div>
+
