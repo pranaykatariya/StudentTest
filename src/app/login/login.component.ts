@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/models/Login.model';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +12,32 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   login = new Login();
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
 
   ngOnInit() {
+
+    if (sessionStorage.getItem('email')) {
+      
+      this.router.navigate([
+        '/instruction'
+      ])
+      
+    }
   }
 
   onLoginSubmit()
-  {
-    alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-    
+  { 
+    // setTimeout(function(){
+      
+    //  }, 3000);
     this.authService.authenticateUser(this.login.Name, this.login.password);
     
     console.log(this.login);
+
+    console.log(this.login.Name);
+    console.log(this.login.password);
+    
   }
+
 }

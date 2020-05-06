@@ -3,6 +3,7 @@ import { Aptitude } from 'src/models/aptitude.model';
 import { AptitudeQuestionService } from '../services/aptitude-question.service';
 import { Router } from '@angular/router';
 import { Response } from 'src/models/Response.model';
+import { CommonURLService } from '../services/common-url.service';
 
 @Component({
   selector: 'app-aptitude',
@@ -20,7 +21,7 @@ export class AptitudeComponent implements OnInit {
 
   private no: number;
 
-  constructor(private aptitudeService: AptitudeQuestionService, private router: Router) {
+  constructor(private aptitudeService: AptitudeQuestionService, private router: Router, private commonUrl: CommonURLService) {
 
    }
 
@@ -39,7 +40,7 @@ export class AptitudeComponent implements OnInit {
     this.optionD = this.aptitudeService.questions[0].optionD;
     this.no=0;
 
-    },3000);
+    }, this.commonUrl.questionLoadinTime );
 
 
     //This method will use to timeout from the given exam module
@@ -54,8 +55,8 @@ export class AptitudeComponent implements OnInit {
       console.log(this.aptitudeService.aptitudeResponse);
 
       console.log("Time over");
-      this.router.navigate(['/home']); 
-      },100000);
+      this.router.navigate(['/technical']); 
+      }, (this.commonUrl.communicationTime * 1000 * 60 + this.commonUrl.questionLoadinTime) );
   }
 
 

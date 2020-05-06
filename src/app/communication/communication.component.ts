@@ -3,6 +3,7 @@ import { Communication } from 'src/models/communication.model';
 import { CommunicationQuestionService } from '../services/communication-question.service';
 import { Router } from '@angular/router';
 import { Response } from 'src/models/Response.model';
+import { CommonURLService } from '../services/common-url.service';
 
 
 @Component({
@@ -21,11 +22,13 @@ export class CommunicationComponent implements OnInit {
 
   private no: number;
 
-  constructor(private communicationService: CommunicationQuestionService, private router: Router) { }
+  constructor(private communicationService: CommunicationQuestionService, private router: Router, private commonUrl: CommonURLService) { }
 
   ngOnInit() {
 
     console.log("here");
+    this.no  = 0;
+    this.question = "loading...";
     //console.log(this.aptitudeService.getAptitudeQuestion(0).question);
     setTimeout(() => {
     
@@ -39,7 +42,7 @@ export class CommunicationComponent implements OnInit {
     this.optionD = this.communicationService.questions[0].optionD;
     this.no=0;
 
-    },3000);
+    },this.commonUrl.questionLoadinTime);
 
 
     //This method will use to timeout from the given exam module
@@ -51,11 +54,12 @@ export class CommunicationComponent implements OnInit {
       //send data to the server 
       this.communicationService.calculateCommunicationMarks();
 
+      console.log('communication component')
       console.log(this.communicationService.communicationResponse);
 
-      console.log("Time over");
-      this.router.navigate(['/home']); 
-      },100000);
+      // console.log("Time over");
+      this.router.navigate(['/writing']);
+      },(this.commonUrl.communicationTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
 
   }
 

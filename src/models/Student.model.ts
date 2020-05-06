@@ -1,5 +1,4 @@
-export class Student {
-    
+export class Student {    
   public firstName: string;
   public lastName: string;
   public email: string;
@@ -11,7 +10,9 @@ export class Student {
   public sscMath: number;
   public hscPercentage: number;
   public hscMath: number;
-
+  public message: string;
+} 
+/*
   // constructor(firstname:string, lastName:string, email:string, mobile:string, password:string, gender:string, sscPercentage: number, sscMath:  number, hscPercentage:number, hscMath: number)
   // {
   //   this.firstName = firstname;
@@ -26,3 +27,4 @@ export class Student {
   //   this.hscMath = hscMath;
   // }
 }
+*/

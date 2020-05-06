@@ -58,6 +58,11 @@ export class TimerComponent implements OnInit, OnDestroy {
   }
 
   private countDown() {
+
+    setTimeout(() => {
+      
+    
+    
     this.clearTimer();
     this.intervalId = window.setInterval(() => {
 
@@ -74,5 +79,6 @@ export class TimerComponent implements OnInit, OnDestroy {
         this.message = this.minute+':'+this.seconds;
       }
     }, 1000);
+  }, 3000);
   }
 }

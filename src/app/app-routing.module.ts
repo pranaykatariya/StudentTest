@@ -26,13 +26,13 @@ const routes: Routes = [
 {path: 'home', component: HomeComponent},
 // {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]}, modify is isAuthenticated method
 {path: 'instruction', component: InstructionComponent},
-{path: 'result', component: ResultComponent},
-{path: 'admin', component: AdminComponent},
-{path: 'question', component: QuestionComponent},
-{path: 'communication', component: CommunicationComponent},
-{path: 'writing', component: WritingComponent},
-{path: 'aptitude', component: AptitudeComponent},
-{path: 'technical', component: TechnicalComponent},
+{path: 'result', component: ResultComponent, canActivate: [AuthGuardService]},
+{path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
+{path: 'question', component: QuestionComponent, canActivate: [AuthGuardService]},
+{path: 'communication', component: CommunicationComponent, canActivate: [AuthGuardService] },
+{path: 'writing', component: WritingComponent, canActivate: [AuthGuardService]},
+{path: 'aptitude', component: AptitudeComponent, canActivate: [AuthGuardService]},
+{path: 'technical', component: TechnicalComponent, canActivate: [AuthGuardService]},
 {path: '**', component: PageNotFoundComponent}
 
 ];

@@ -1,41 +1,55 @@
 import { Injectable } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonURLService {
 
-  //baseUrl: string = "https://restpsp.herokuapp.com/"
+  //baseUrl: string = "http://localhost:8090/"
+
+  //This no is in millisecond
+  questionLoadinTime: number = 3000;
 
   communicationURL: string = '/communication';
-  communicationTime: number = 15;
+  // communicationTime: number = 15;
+  communicationTime: number = 1;
 
   writingURL: string = '/writing';
-  writingTime: number = 10;
+  writingTime: number = 15;
 
   aptitudeURL: string = '/aptitude';
-  aptitudeTime: number = 20;
+  // aptitudeTime: number = 30;
+  aptitudeTime: number = 1;
   
   technicalURL: string = '/technical';
-  technicalTime: number  = 18;
+  // technicalTime: number  = 30;
+  technicalTime: number  = 1;
+
+  resultURL: string = '/result';
+  //This is next url to be loaded in the component
+  public nextURL: string = '';
+
   
 
-  aptitudeQuestion: string  = "https://restpsp.herokuapp.com/getAptitudeQuestions";
-  storeAptitudeMarks: string = "https://restpsp.herokuapp.com/storeAptitudeMarks";
+  aptitudeQuestion: string  = "http://localhost:8090/getAptitudeQuestions";
+  storeAptitudeMarks: string = "http://localhost:8090/storeAptitudeMarks";
 
 
-  technicalQuestion: string  = "https://restpsp.herokuapp.com/getTechnicalQuestions";
-  storeTechnicalMarks: string = "https://restpsp.herokuapp.com/storeTechnnicalMarks";
+  technicalQuestion: string  = "http://localhost:8090/getTechnicalQuestions";
+  storeTechnicalMarks: string = "http://localhost:8090/storeTechnnicalMarks";
 
-  communicationQuestion: string = "https://restpsp.herokuapp.com/getCommunicationQuestions";
-  storeCommunicationMarks: string = "https://restpsp.herokuapp.com/storeCommunicationMarks";
+  communicationQuestion: string = "http://localhost:8090/getCommunicationQuestions";
+  storeCommunicationMarks: string = "http://localhost:8090/storeCommunicationMarks";
 
 
-  signUpStudent: string = "https://restpsp.herokuapp.com/createStudent";
-  loginStudent: string = "https://restpsp.herokuapp.com/students/";
+  signUpStudent: string = "http://localhost:8090/createStudent";
+  loginStudent: string = "http://localhost:8090/students/";
   
 
-  constructor() { }
+  constructor() { 
+
+
+  }
 
 }

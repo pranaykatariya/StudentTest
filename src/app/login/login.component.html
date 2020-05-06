@@ -13,7 +13,7 @@
           <div class="form-group">
           <label>User Name</label>
           <input type="text" id="name" class="form-control" required minlength="4" name="name"
-          [(ngModel)]="login.name" #name="ngModel"/>
+          [(ngModel)]="login.Name" #name="ngModel"/>
           </div>
   
           <span class="text-error"
@@ -34,8 +34,13 @@
             </span><br>
 
            <input type="submit" class="btn-btn-success" value="Login"><br>
+            
+           <span class="text-warning">{{this.authService.message}}</span>
+           <br>
            <a routerLink ="/signup">Don't have an account?</a>
            </div>
            </form>
           </div>
+          
+
 <app-footer></app-footer>

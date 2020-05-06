@@ -3,6 +3,8 @@ import { Technical } from 'src/models/technical.model';
 import { TechnicalQuestionService } from '../services/technical-question.service';
 import { Router } from '@angular/router';
 import { Response } from 'src/models/Response.model';
+import { CommonURLService } from '../services/common-url.service';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-technical',
@@ -17,16 +19,19 @@ export class TechnicalComponent implements OnInit {
   private optionB: string;
   private optionC: string;
   private optionD: string;
-  private checkedOptions: string[] = [];
+  public checkedOptions: string[] = new Array();
 
-  private no: number;
+  public no: number;
 
-  constructor(private technicalService: TechnicalQuestionService, private router: Router) { 
+  constructor(private technicalService: TechnicalQuestionService, private router: Router, private commonUrl: CommonURLService) {
+
 
   }
 
   ngOnInit() {
     console.log("here");
+
+    
     //console.log(this.aptitudeService.getAptitudeQuestion(0).question);
     setTimeout(() => {
     
@@ -40,7 +45,20 @@ export class TechnicalComponent implements OnInit {
     this.optionD = this.technicalService.questions[0].optionD;
     this.no=0;
 
-    },3000);
+
+    console.log("length here");
+    console.log(this.technicalService.questions.length);
+
+    console.log('filling array');
+    
+    for (let index = 0; index < this.technicalService.questions.length; index++) {
+      this.checkedOptions.push('10');
+    }
+
+    for (let index = 0; index < this.technicalService.questions.length; index++) {
+      console.log(this.checkedOptions[index]);
+    }
+    },this.commonUrl.questionLoadinTime);
 
 
     //This method will use to timeout from the given exam module
@@ -49,16 +67,33 @@ export class TechnicalComponent implements OnInit {
         this.technicalService.technicalResponse.push(new Response(this.technicalService.questions[index].correctOption,this.checkedOptions[index]));
       }
 
-      //send data to the server 
+      //send data to the server for marks calcualtion of module
       this.technicalService.calculateTechnicalMarks();
 
       console.log(this.technicalService.technicalResponse);
 
       console.log("Time over");
+
+      
+
+      //Tried to print this array out in the console
+      for(let i=0; i<this.technicalService.questions.length; i++){
+        console.log(this.checkedOptions[i]); //use i instead of 0
+    }
+
       this.router.navigate(['/home']); 
-      },100000);
+      }, (this.commonUrl.communicationTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
   }
 
+
+ 
+  updateCheckedOtions(response: string)
+  {
+    console.log('radio clicked');
+    console.log(response);
+
+    this.checkedOptions[this.no] = response;
+  }
 
 
   loadNextQuestion()
@@ -66,8 +101,7 @@ export class TechnicalComponent implements OnInit {
     console.log("next");
     if(this.no >= 14)
     {
-      console.log("completed");
-      
+      console.log("completed");      
     }else{
     console.log(this.no);
     this.no++;
@@ -99,6 +133,8 @@ export class TechnicalComponent implements OnInit {
 
   loadCustomQuestion(no:number)
   {
+
+    console.log(this.checkedOptions[0]);
     this.no = no;
     console.log(this.no);
     this.question = this.technicalService.questions[this.no].question;
