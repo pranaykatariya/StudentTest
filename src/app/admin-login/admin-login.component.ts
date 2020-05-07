@@ -14,8 +14,9 @@ export class AdminLoginComponent implements OnInit {
   adminlogin = new Adminlogin();
   constructor(private authService: AuthService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit(){
+    }
+  
 
   onLoginSubmit()
   {

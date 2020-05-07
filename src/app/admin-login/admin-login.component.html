@@ -1,12 +1,12 @@
 <!-- changes reflected -->
 
-<app-header></app-header>
+
        <div id="login-box">
         <form class="form" #registerForm="ngForm"
         (ngSubmit)="registerForm.form.valid && onLoginSubmit()" novalidate>
         
         <div class="left-box">
-        <h1> Login</h1>
+        <h1> Admin Login</h1>
 
         
          
@@ -20,20 +20,17 @@
           *ngIf="(name.touched || registerForm.submitted) && name.errors?.required">
           Name is required
           </span>
-         
-
-          <div class="form-group">
-            <label>Password</label>
-            <input type="password" id="password" class="form-control" required minlength="4" name="passwrord"
-            [(ngModel)]="adminlogin.password" #password="ngModel"/>
-            </div>
-     
-            <span class="text-error"
-            *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
-            Password is required
-            </span>
-            
-
+  
+          <div class="form-group">    
+            <label>Password</label>    
+            <input type="password" id="password" class="form-control" [(ngModel)]="adminlogin.password" name="password"    
+                #password="ngModel" required>    
+            <span class="text-error"    
+                *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">    
+                Password is required    
+            </span> 
+            </div>  
+       
            <br><input type="submit" class="btn-btn-success" value="Login"><br>
           
            </div>
