@@ -4,6 +4,65 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Utilities</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Admin Info</span>
+        </a>
+      </li>
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Student Info</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Student Result</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      
+
+    </ul>
+    <!-- End of Sidebar -->
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -137,14 +196,15 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row d-flex justify-content-center">
+
+          <div class="row">
+
             <!-- Area Chart -->
-            
-            <div class="col-xl-9 col-lg-8">
+            <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-4">
-                  <h6 class="text-center m-0 font-weight-bold text-primary text-uppercase">Student's Result</h6>
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Students</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -154,19 +214,19 @@
                 </div>
               </div>
             </div>
-          </div> 
-         
+
+          </div>
 
           <!-- Content Row -->
-          <div class="row d-flex justify-content-center">
+         
 
             <!-- Content Column -->
             <div class="col-lg-6 mb-4">
 
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
-                <div class="card-header py-4">
-                  <h6 class="m-0 text-center font-weight-bold text-primary">Individual Module Performance Of Students</h6>
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Individual Module Performance Of Students</h6>
                 </div>
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Communication <span class="float-right">20%</span></h4>
@@ -189,12 +249,12 @@
               </div>
 
               <!-- Color System -->
-              <div class="row d-flex justify-content-center">
+              <div class="row">
                 <div class="col-lg-6 mb-4">
                   <div class="card bg-success text-white shadow">
                     <div class="card-body">
                       Excellent
-                      <div class="text-white-50 small">gt 75% && and lte 100%</div>
+                      <div class="text-white-50 small">>75 && <=100</div>
                     </div>
                   </div>
                 </div>
@@ -202,7 +262,7 @@
                   <div class="card bg-primary text-white shadow">
                     <div class="card-body">
                       Good
-                      <div class="text-white-50 small">gt 50% && lte 75%</div>
+                      <div class="text-white-50 small">>50 && <=75</div>
                     </div>
                   </div>
                 </div>
@@ -210,7 +270,7 @@
                   <div class="card bg-warning text-white shadow">
                     <div class="card-body">
                       Average
-                      <div class="text-white-50 small">gt 25% && lte 50%</div>
+                      <div class="text-white-50 small">>25 && <=50</div>
                     </div>
                   </div>
                 </div>
@@ -218,14 +278,14 @@
                   <div class="card bg-danger text-white shadow">
                     <div class="card-body">
                       Poor
-                      <div class="text-white-50 small">lte 25%</div>
+                      <div class="text-white-50 small"><= 25%</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+
           
-    
+          </div>
 
         </div>
         <!-- /.container-fluid -->
