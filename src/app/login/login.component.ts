@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/models/Login.model';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -31,13 +30,12 @@ export class LoginComponent implements OnInit {
     // setTimeout(function(){
       
     //  }, 3000);
-    this.authService.authenticateUser(this.login.Name, this.login.password);
+    this.authService.authenticateUser(this.login.email, this.login.password);
     
     console.log(this.login);
 
-    console.log(this.login.Name);
+    console.log(this.login.email);
     console.log(this.login.password);
     
   }
-
 }
