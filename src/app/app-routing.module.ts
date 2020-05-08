@@ -32,7 +32,7 @@ const routes: Routes = [
 // {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]}, modify is isAuthenticated method
 {path: 'instruction', component: InstructionComponent},
 {path: 'result', component: ResultComponent,  canActivate: [AuthGuardService]},
-{path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
+{path: 'admin', component: AdminComponent},
 {path: 'question', component: QuestionComponent, canActivate: [AuthGuardService]},
 {path: 'communication', component: CommunicationComponent, canActivate: [AuthGuardService]},
 {path: 'writing', component: WritingComponent, canActivate: [AuthGuardService]},
@@ -40,8 +40,8 @@ const routes: Routes = [
 {path: 'technical', component: TechnicalComponent, canActivate: [AuthGuardService]},
 {path: 'admin-login', component: AdminLoginComponent},
 {path: 'carousel', component: CarouselComponent},
-{path: 'profile', component:ProfileComponent},
-{path: 'tips',component:TipsComponent},
+{path: 'profile', component:ProfileComponent, canActivate: [AuthGuardService]},
+{path: 'tips',component:TipsComponent, canActivate: [AuthGuardService]},
 {path: '**', component: PageNotFoundComponent}
 
 

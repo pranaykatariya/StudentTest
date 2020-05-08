@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AdminLoginComponent implements OnInit {
 
- 
+  private message: string;
 
   adminlogin = new Adminlogin();
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private router: Router) { }
 
     ngOnInit(){
       
@@ -22,19 +22,17 @@ export class AdminLoginComponent implements OnInit {
 
   onLoginSubmit()
   {
-    if((this.adminlogin.username != "Admin")&&(this.adminlogin.password !="admin123")){
-      alert('User Name and password does not match!!');
-    }
-    else{
+    if( (this.adminlogin.username === "admin")  && (this.adminlogin.password === "admin123"))
+    {
+      sessionStorage.setItem('admin','1');
       this.router.navigate([
         '/admin'
-      ])
+      ]) 
+    }else
+    {
+      this.message = "Invalid username or password";
     }
     
-    this.authService.authenticateUser(this.adminlogin.username, this.adminlogin.password);
-    console.log(this.adminlogin);
-    console.log(this.adminlogin.username);
-    console.log(this.adminlogin.password);
   }
 
 }
