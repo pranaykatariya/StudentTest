@@ -1,5 +1,5 @@
 export class Adminlogin {
     
-    public Name: string;
+    public username: string;
     public password: string;
   }
