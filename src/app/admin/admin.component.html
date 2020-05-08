@@ -140,7 +140,7 @@
           <div class="row d-flex justify-content-center">
 
             <!-- Area Chart -->
-            <div class="col-xl-9 col-lg-8">
+            <div class="col-xl">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-4">
@@ -148,8 +148,42 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                  <div>
+                    <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Mobile</th>
+                              <th>Gender</th>
+                              <th>Aptitude</th>
+                              <th>Communication</th>
+                              <th>Technical</th>
+                              <th>Writing</th>
+                              <th>HSC %</th>
+                              <th>HSC Math</th>
+                              <th>SSC %</th>
+                              <th>SSC Math</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>{{fname}} {{lname}}</td>
+                              <td>{{email}}</td>
+                              <td>{{mob}}</td>
+                              <td>{{gender}}</td>
+                              <td>{{apti}}</td>
+                              <td>{{comm}}</td>
+                              <td>{{tech}}</td>
+                              <td>{{wri}}</td>
+                              <td>{{hscp}}</td>
+                              <td>{{hscm}}</td>
+                              <td>{{sscp}}</td>
+                              <td>{{sscm}}</td>
+                          </tr>            
+                      </tbody>
+                  </table>
+
                   </div>
                 </div>
               </div>
