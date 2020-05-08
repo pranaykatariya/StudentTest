@@ -12,7 +12,7 @@ import { StudentMark } from 'src/models/StudentMark.model';
 })
 export class SignupComponent implements OnInit {
 
-
+  private message: string;
   student = new Student();
 
   // studentMark = new StudentMark();
@@ -23,34 +23,32 @@ export class SignupComponent implements OnInit {
    }
 
   ngOnInit() {
-
-    if (sessionStorage.getItem('email')) {
-      
-      this.router.navigate([
-        '/instruction'
-      ])
-      
-    }
+    
 
   }
 
 
   onSubmit()
   {
-    console.log("submit clicked")
-    console.log(this.student);
+
+    if(this.student.SSC_Percentage <0 ||this.student.SSC_Percentage>100){
+      this.message = "Enter marks in range 0-100";
+    }
+    else if(this.student.SSC_Maths <0 ||this.student.SSC_Maths>100){
+      this.message = "Enter marks in range 0-100";
+    }
+    else if(this.student.HSC_Percentage <0 ||this.student.HSC_Percentage>100){
+      this.message = "Enter marks in range 0-100";
+    }
+    else if(this.student.HSC_Maths <0 ||this.student.HSC_Maths >100){
+      this.message = "Enter marks in range 0-100";
+    }
+    else{
+      this.router.navigate([
+        '/login'
+      ]) 
+    }
     
-    // this.studentMark.SSCPercentage = this.student.SSC_Percentage.toString();
-    // this.studentMark.HSCPercentage = this.student.HSC_Percentage.toString();
-    // this.studentMark.SSCMaths = this.student.SSC_Maths.toString();
-    // this.studentMark.HSCMaths = this.student.HSC_Maths.toString();
-    // this.studentMark.email = this.student.email;
-    this.studentService.postStudentDataToServer(this.student);
-
-
-    // console.log(this.studentMark);
-    // this.studentService.postStudentMarkToServer(this.studentMark);
     
   }
-
 }
