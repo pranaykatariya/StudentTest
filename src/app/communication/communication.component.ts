@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Communication } from 'src/models/communication.model';
 import { CommunicationQuestionService } from '../services/communication-question.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { CommonURLService } from '../services/common-url.service';
   templateUrl: './communication.component.html',
   styleUrls: ['./communication.component.css']
 })
-export class CommunicationComponent implements OnInit {
+export class CommunicationComponent implements OnInit, OnDestroy {
 
   private question: string;
   private optionA: string;
@@ -21,8 +21,11 @@ export class CommunicationComponent implements OnInit {
   private checkedOptions: string[] = [];
 
   private no: number;
+  private timer;
 
   constructor(private communicationService: CommunicationQuestionService, private router: Router, private commonUrl: CommonURLService) { }
+
+  
 
   ngOnInit() {
 
@@ -46,24 +49,28 @@ export class CommunicationComponent implements OnInit {
 
 
     //This method will use to timeout from the given exam module
-    setTimeout(() => {
-      for (let index = 0; index < this.communicationService.questions.length; index++) {
-        this.communicationService.communicationResponse.push(new Response(this.communicationService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
-      }
-
-      //send data to the server 
-      this.communicationService.calculateCommunicationMarks();
-
-      console.log('communication component')
-      console.log(this.communicationService.communicationResponse);
-
-      // console.log("Time over");
-      this.router.navigate(['/writing']);
+    this.timer = setTimeout(() => {
+        // this.sendMarksToServer();    
+        this.router.navigate(['/writing']);
       },(this.commonUrl.communicationTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
 
   }
 
+  sendMarksToServer()
+  {
+    for (let index = 0; index < this.communicationService.questions.length; index++) {
+      this.communicationService.communicationResponse.push(new Response(this.communicationService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
+    }
 
+    //send data to the server 
+    this.communicationService.calculateCommunicationMarks();
+
+    console.log('communication component')
+    console.log(this.communicationService.communicationResponse);
+
+    // console.log("Time over");
+    
+  }
 
   updateCheckedOtions(response: string)
   {
@@ -119,6 +126,13 @@ export class CommunicationComponent implements OnInit {
     this.optionB = this.communicationService.questions[this.no].optionB;
     this.optionC = this.communicationService.questions[this.no].optionC;
     this.optionD = this.communicationService.questions[this.no].optionD;
+  }
+
+  ngOnDestroy()
+  {
+    console.log("communication destroyed")
+    this.sendMarksToServer();    
+    clearTimeout( this.timer );
   }
 }
 

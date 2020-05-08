@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+    this.authService.message = '';
+
     if (sessionStorage.getItem('email')) {
       
       this.router.navigate([

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Technical } from 'src/models/technical.model';
 import { TechnicalQuestionService } from '../services/technical-question.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   templateUrl: './technical.component.html',
   styleUrls: ['./technical.component.css']
 })
-export class TechnicalComponent implements OnInit {
+export class TechnicalComponent implements OnInit, OnDestroy {
 
 
   private question: string;
@@ -22,6 +22,7 @@ export class TechnicalComponent implements OnInit {
   public checkedOptions: string[] = new Array();
 
   public no: number;
+  private timer;
 
   constructor(private technicalService: TechnicalQuestionService, private router: Router, private commonUrl: CommonURLService) {
 
@@ -62,24 +63,8 @@ export class TechnicalComponent implements OnInit {
 
 
     //This method will use to timeout from the given exam module
-    setTimeout(() => {
-      for (let index = 0; index < this.technicalService.questions.length; index++) {
-        this.technicalService.technicalResponse.push(new Response(this.technicalService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
-      }
-
-      //send data to the server for marks calcualtion of module
-      this.technicalService.calculateTechnicalMarks();
-
-      console.log(this.technicalService.technicalResponse);
-
-      console.log("Time over");
-
+    this.timer = setTimeout(() => {
       
-
-      //Tried to print this array out in the console
-      for(let i=0; i<this.technicalService.questions.length; i++){
-        console.log(this.checkedOptions[i]); //use i instead of 0
-    }
 
       this.router.navigate(['/home']); 
       }, (this.commonUrl.technicalTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
@@ -142,5 +127,33 @@ export class TechnicalComponent implements OnInit {
     this.optionB = this.technicalService.questions[this.no].optionB;
     this.optionC = this.technicalService.questions[this.no].optionC;
     this.optionD = this.technicalService.questions[this.no].optionD;
+  }
+
+  sendMarksToServer()
+  {
+    for (let index = 0; index < this.technicalService.questions.length; index++) {
+      this.technicalService.technicalResponse.push(new Response(this.technicalService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
+    }
+
+    //send data to the server for marks calcualtion of module
+    this.technicalService.calculateTechnicalMarks();
+
+    console.log(this.technicalService.technicalResponse);
+
+    console.log("Time over");
+
+    
+
+    //Tried to print this array out in the console
+    for(let i=0; i<this.technicalService.questions.length; i++){
+      console.log(this.checkedOptions[i]); //use i instead of 0
+  }
+  }
+
+  ngOnDestroy()
+  {
+    console.log("communication destroyed")
+    this.sendMarksToServer();    
+    clearTimeout( this.timer );
   }
 }

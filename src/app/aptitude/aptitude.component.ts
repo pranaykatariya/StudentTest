@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Aptitude } from 'src/models/aptitude.model';
 import { AptitudeQuestionService } from '../services/aptitude-question.service';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { CommonURLService } from '../services/common-url.service';
   templateUrl: './aptitude.component.html',
   styleUrls: ['./aptitude.component.css']
 })
-export class AptitudeComponent implements OnInit {
+export class AptitudeComponent implements OnInit, OnDestroy {
   
   private question: string;
   private optionA: string;
@@ -20,6 +20,7 @@ export class AptitudeComponent implements OnInit {
   private checkedOptions: string[] = [];
 
   private no: number;
+  private timer;
 
   constructor(private aptitudeService: AptitudeQuestionService, private router: Router, private commonUrl: CommonURLService) {
 
@@ -44,17 +45,8 @@ export class AptitudeComponent implements OnInit {
 
 
     //This method will use to timeout from the given exam module
-    setTimeout(() => {
-      for (let index = 0; index < this.aptitudeService.questions.length; index++) {
-        this.aptitudeService.aptitudeResponse.push(new Response(this.aptitudeService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
-      }
-
-      //send data to the server 
-      this.aptitudeService.calculateAptitudeMarks();
-
-      console.log(this.aptitudeService.aptitudeResponse);
-
-      console.log("Time over");
+    this.timer = setTimeout(() => {
+      
       this.router.navigate(['/technical']); 
       }, (this.commonUrl.aptitudeTime * 1000 * 60 + this.commonUrl.questionLoadinTime) );
   }
@@ -112,5 +104,26 @@ export class AptitudeComponent implements OnInit {
     this.optionB = this.aptitudeService.questions[this.no].optionB;
     this.optionC = this.aptitudeService.questions[this.no].optionC;
     this.optionD = this.aptitudeService.questions[this.no].optionD;
+  }
+  
+  sendMarksToServer()
+  {
+    for (let index = 0; index < this.aptitudeService.questions.length; index++) {
+      this.aptitudeService.aptitudeResponse.push(new Response(this.aptitudeService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
+    }
+
+    //send data to the server 
+    this.aptitudeService.calculateAptitudeMarks();
+
+    console.log(this.aptitudeService.aptitudeResponse);
+
+    console.log("Time over");
+  }
+
+  ngOnDestroy()
+  {
+    console.log("communication destroyed")
+    this.sendMarksToServer();    
+    clearTimeout( this.timer );
   }
 }
