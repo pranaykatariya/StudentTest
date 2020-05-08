@@ -1,9 +1,22 @@
 export class StudentMark {    
     
+    public firstName: string;
+    public lastName: string;
     public email: string;
-    public SSCPercentage: string;
-    public SSCMaths: string;
-    public HSCPercentage: string;
-    public HSCMaths: string;
+    public mobile: string;
+    public password: string;
+    public confirmpassword: string;
+    public gender: string;
+    public SSC_Percentage: number;
+    public SSC_Maths: number;
+    public HSC_Percentage: number;
+    public HSC_Maths: number;
+    
+    public aptitude_marks: number;
+    public communication_marks: number;
+    public writing_marks: number;
+    public technical_marks: number;
+
+    
     
 } 

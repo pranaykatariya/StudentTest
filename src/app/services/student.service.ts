@@ -16,6 +16,8 @@ export class StudentService
   public serverResponse: Student;
   public studentMark: StudentMark;
 
+  public studentsData: StudentMark[] = [];
+
   constructor(private http: HttpClient, private url: CommonURLService, private router: Router) { 
 
   }
@@ -49,5 +51,16 @@ export class StudentService
       
       console.log(data);
     });  
+  }
+
+
+  getAllStudents()
+  {
+    this.http.get<StudentMark[]>(this.url.studentData).subscribe((result) => {
+      //console.log(result);  
+      this.studentsData = result;
+      
+      
+    }, error => console.error(error));    
   }
 }

@@ -63,6 +63,7 @@ export class CommonURLService {
   signUpStudent: string = "https://restpsp.herokuapp.com/createStudent";
   updateStudentMarks: string = "https://restpsp.herokuapp.com/updateMarks";
   loginStudent: string = "https://restpsp.herokuapp.com/students/";
+  studentData: string = "https://restpsp.herokuapp.com/students";
   
 
   constructor() { 
