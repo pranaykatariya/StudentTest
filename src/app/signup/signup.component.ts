@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
 
   student = new Student();
 
-  studentMark = new StudentMark();
+  // studentMark = new StudentMark();
   
 
   constructor(private studentService: StudentService, private router: Router) {
@@ -40,15 +40,15 @@ export class SignupComponent implements OnInit {
     console.log("submit clicked")
     console.log(this.student);
     
-    this.studentMark.SSCPercentage = this.student.SSC_Percentage.toString();
-    this.studentMark.HSCPercentage = this.student.HSC_Percentage.toString();
-    this.studentMark.SSCMaths = this.student.SSC_Maths.toString();
-    this.studentMark.HSCMaths = this.student.HSC_Maths.toString();
-    this.studentMark.email = this.student.email;
+    // this.studentMark.SSCPercentage = this.student.SSC_Percentage.toString();
+    // this.studentMark.HSCPercentage = this.student.HSC_Percentage.toString();
+    // this.studentMark.SSCMaths = this.student.SSC_Maths.toString();
+    // this.studentMark.HSCMaths = this.student.HSC_Maths.toString();
+    // this.studentMark.email = this.student.email;
     this.studentService.postStudentDataToServer(this.student);
 
 
-    console.log(this.studentMark);
+    // console.log(this.studentMark);
     // this.studentService.postStudentMarkToServer(this.studentMark);
     
   }

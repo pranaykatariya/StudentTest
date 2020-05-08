@@ -19,12 +19,12 @@ export class CommonURLService {
   writingTime: number = 15;
 
   aptitudeURL: string = '/aptitude';
-  // aptitudeTime: number = 30;
-  aptitudeTime: number = 1;
+  aptitudeTime: number = 30;
+  // aptitudeTime: number = 1;
   
   technicalURL: string = '/technical';
-  // technicalTime: number  = 30;
-  technicalTime: number  = 1;
+  technicalTime: number  = 30;
+  // technicalTime: number  = 1;
 
   resultURL: string = '/result';
   //This is next url to be loaded in the component
