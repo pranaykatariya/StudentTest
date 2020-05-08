@@ -167,19 +167,19 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr>
-                              <td>{{fname}} {{lname}}</td>
-                              <td>{{email}}</td>
-                              <td>{{mob}}</td>
-                              <td>{{gender}}</td>
-                              <td>{{apti}}</td>
-                              <td>{{comm}}</td>
-                              <td>{{tech}}</td>
-                              <td>{{wri}}</td>
-                              <td>{{hscp}}</td>
-                              <td>{{hscm}}</td>
-                              <td>{{sscp}}</td>
-                              <td>{{sscm}}</td>
+                          <tr *ngFor="let d of data;">
+                              <td>{{d.firstName}} {{d.lastName}}</td>
+                              <td>{{d.email}}</td>
+                              <td>{{d.mobile}}</td>
+                              <td>{{d.gender}}</td>
+                              <td>{{d.aptitude_marks}}</td>
+                              <td>{{d.communication_marks}}</td>
+                              <td>{{d.technical_marks}}</td>
+                              <td>{{d.writing_marks}}</td>
+                              <td>{{d.HSC_Percentage}}</td>
+                              <td>{{d.HSC_Maths}}</td>
+                              <td>{{d.SSC_Percentage}}</td>
+                              <td>{{d.SSC_Maths}}</td>
                           </tr>            
                       </tbody>
                   </table>
