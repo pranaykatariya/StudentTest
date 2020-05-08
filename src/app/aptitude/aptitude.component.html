@@ -26,10 +26,46 @@
               </div>
 
           <div class="quiz" id="quiz" data-toggle="buttons">
-           <label class="element-animation1 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1" [(ngModel)]="checkedOptions[no]">{{optionA}}</label>
+
+            
+            <a style="cursor: pointer; text-decoration: none;" (click) = "updateCheckedOtions('1')">
+              <label class="element-animation1 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> 
+              
+              <input type="radio" id="q_answer" name="q_answer" value="1">{{optionA}}
+              
+              </label>
+              </a>
+            
+              
+              <a style="cursor: pointer; text-decoration: none;" (click) = "updateCheckedOtions('2')">
+              <label class="element-animation2 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              
+              <input type="radio" id="q_answer" name="q_answer" value="2">{{optionB}}
+               
+              </label>
+              </a>
+            
+              <a style="cursor: pointer; text-decoration: none;" (click) = "updateCheckedOtions('3')">
+              <label class="element-animation2 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              
+              <input type="radio" id="q_answer" name="q_answer" value="3">{{optionC}}
+              
+              </label>
+              </a> 
+  
+              
+              <a style="cursor: pointer; text-decoration: none;" (click) = "updateCheckedOtions('4')">
+              <label class="element-animation2 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              
+              <input type="radio" id="q_answer" name="q_answer" value="4">{{optionD}}
+              
+              </label>
+              </a> 
+
+           <!-- <label class="element-animation1 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1" [(ngModel)]="checkedOptions[no]">{{optionA}}</label>
            <label class="element-animation2 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2" [(ngModel)]="checkedOptions[no]">{{optionB}}</label>
            <label class="element-animation3 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3" [(ngModel)]="checkedOptions[no]">{{optionC}}</label>
-           <label class="element-animation4 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4" [(ngModel)]="checkedOptions[no]">{{optionD}}</label>
+           <label class="element-animation4 btn btn-lg btn-secondary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4" [(ngModel)]="checkedOptions[no]">{{optionD}}</label> -->
           </div>
        </div>
    

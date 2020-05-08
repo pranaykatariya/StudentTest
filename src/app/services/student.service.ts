@@ -3,6 +3,7 @@ import { CommonURLService } from './common-url.service';
 import { Student } from 'src/models/student.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { StudentMark } from 'src/models/StudentMark.model';
 
 
 @Injectable({
@@ -10,8 +11,10 @@ import { Router } from '@angular/router';
 })
 export class StudentService
 {
+  
   //serverResponse: studentResponse;
   public serverResponse: Student;
+  public studentMark: StudentMark;
 
   constructor(private http: HttpClient, private url: CommonURLService, private router: Router) { 
 
@@ -32,5 +35,19 @@ export class StudentService
       this.router.navigate(['/login']);
       console.log(data);
     });
+  }
+
+  postStudentMarkToServer(data: StudentMark)
+  {
+    console.log(data);
+    this.http.post<Student>( this.url.updateStudentMarks, data)
+    .subscribe(data =>
+    {
+      console.log("student data sent to server")
+      
+      // if(this.serverResponse.message)
+      
+      console.log(data);
+    });  
   }
 }

@@ -48,7 +48,7 @@ export class CommunicationComponent implements OnInit {
     //This method will use to timeout from the given exam module
     setTimeout(() => {
       for (let index = 0; index < this.communicationService.questions.length; index++) {
-        this.communicationService.communicationResponse.push(new Response(this.communicationService.questions[index].correctOption,this.checkedOptions[index]));
+        this.communicationService.communicationResponse.push(new Response(this.communicationService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
       }
 
       //send data to the server 
@@ -65,7 +65,15 @@ export class CommunicationComponent implements OnInit {
 
 
 
-  
+  updateCheckedOtions(response: string)
+  {
+    console.log('radio clicked');
+    console.log(response);
+
+    this.checkedOptions[this.no] = response;
+  }
+
+    
   loadNextQuestion()
   {
     console.log("next");

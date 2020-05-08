@@ -46,7 +46,7 @@ export class QuestionComponent implements OnInit {
     //This method will use to timeout from the given exam module
     setTimeout(() => {
       for (let index = 0; index < this.aptitudeService.questions.length; index++) {
-        this.aptitudeService.aptitudeResponse.push(new Response(this.aptitudeService.questions[index].correctOption,this.checkedOptions[index]));
+        this.aptitudeService.aptitudeResponse.push(new Response(this.aptitudeService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
       }
 
       //send data to the server 

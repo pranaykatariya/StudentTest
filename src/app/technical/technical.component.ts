@@ -64,7 +64,7 @@ export class TechnicalComponent implements OnInit {
     //This method will use to timeout from the given exam module
     setTimeout(() => {
       for (let index = 0; index < this.technicalService.questions.length; index++) {
-        this.technicalService.technicalResponse.push(new Response(this.technicalService.questions[index].correctOption,this.checkedOptions[index]));
+        this.technicalService.technicalResponse.push(new Response(this.technicalService.questions[index].correctOption,this.checkedOptions[index], sessionStorage.getItem('email')));
       }
 
       //send data to the server for marks calcualtion of module
@@ -82,7 +82,7 @@ export class TechnicalComponent implements OnInit {
     }
 
       this.router.navigate(['/home']); 
-      }, (this.commonUrl.communicationTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
+      }, (this.commonUrl.technicalTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
   }
 
 

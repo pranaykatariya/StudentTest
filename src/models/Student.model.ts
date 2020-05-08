@@ -6,10 +6,10 @@ export class Student {
   public password: string;
   public confirmpassword: string;
   public gender: string;
-  public sscPercentage: number;
-  public sscMath: number;
-  public hscPercentage: number;
-  public hscMath: number;
+  public SSC_Percentage: number;
+  public SSC_Maths: number;
+  public HSC_Percentage: number;
+  public HSC_Maths: number;
   public message: string;
 } 
 /*

@@ -101,7 +101,7 @@
         <div class="form-group">
         <label>10th Result in %</label>
         <input type="number" id="result1" class="form-control" required min="0" max="100" name="result1"
-        [(ngModel)]="student.sscPercentage" #result1="ngModel"/>
+        [(ngModel)]="student.SSC_Percentage" #result1="ngModel"/>
         </div>
             
         <span class="text-error"
@@ -113,7 +113,7 @@
         <div class="form-group">
         <label>Maths Marks of 10th</label>
         <input type="number" id="maths1" class="form-control" required min="0" max="100" name="maths1"
-        [(ngModel)]="student.sscMath" #maths1="ngModel"/>
+        [(ngModel)]="student.SSC_Maths" #maths1="ngModel"/>
         </div>
             
         <span class="text-error"
@@ -124,7 +124,7 @@
         <div class="form-group">
         <label>12th Result in %</label>
         <input type="number" id="result2" class="form-control" required min="0" max="100" name="result2"
-        [(ngModel)]="student.hscPercentage" #result2="ngModel"/>
+        [(ngModel)]="student.HSC_Percentage" #result2="ngModel"/>
         </div>
             
         <span class="text-error"
@@ -135,7 +135,7 @@
         <div class="form-group">
         <label>Maths Marks of 12th</label>
         <input type="number" id="maths2" class="form-control" required min="0" max="100" [ngModelOptions]="{standalone: true}"
-        [(ngModel)]="student.hscMath" #maths2="ngModel"/>
+        [(ngModel)]="student.HSC_Maths" #maths2="ngModel"/>
         </div>
             
         <span class="text-error"

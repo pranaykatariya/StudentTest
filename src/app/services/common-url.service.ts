@@ -19,12 +19,12 @@ export class CommonURLService {
   writingTime: number = 15;
 
   aptitudeURL: string = '/aptitude';
-  aptitudeTime: number = 30;
-  // aptitudeTime: number = 1;
+  // aptitudeTime: number = 30;
+  aptitudeTime: number = 1;
   
   technicalURL: string = '/technical';
-  technicalTime: number  = 30;
-  // technicalTime: number  = 1;
+  // technicalTime: number  = 30;
+  technicalTime: number  = 1;
 
   resultURL: string = '/result';
   //This is next url to be loaded in the component
@@ -32,34 +32,35 @@ export class CommonURLService {
 
   
 
-  // aptitudeQuestion: string  = "http://localhost:8090/getAptitudeQuestions";
-  // storeAptitudeMarks: string = "http://localhost:8090/storeAptitudeMarks";
+  aptitudeQuestion: string  = "http://localhost:8090/getAptitudeQuestions";
+  storeAptitudeMarks: string = "http://localhost:8090/storeAptitudeMarks";
 
 
-  // technicalQuestion: string  = "http://localhost:8090/getTechnicalQuestions";
-  // storeTechnicalMarks: string = "http://localhost:8090/storeTechnnicalMarks";
+  technicalQuestion: string  = "http://localhost:8090/getTechnicalQuestions";
+  storeTechnicalMarks: string = "http://localhost:8090/storeTechnnicalMarks";
 
-  // communicationQuestion: string = "http://localhost:8090/getCommunicationQuestions";
-  // storeCommunicationMarks: string = "http://localhost:8090/storeCommunicationMarks";
-
-
-  // signUpStudent: string = "http://localhost:8090/createStudent";
-  // loginStudent: string = "http://localhost:8090/students/";
+  communicationQuestion: string = "http://localhost:8090/getCommunicationQuestions";
+  storeCommunicationMarks: string = "http://localhost:8090/storeCommunicationMarks";
 
 
-  technicalQuestion: string  = "https://restpsp.herokuapp.com/getTechnicalQuestions";
-  storeTechnicalMarks: string = "https://restpsp.herokuapp.com/storeTechnnicalMarks";
+  signUpStudent: string = "http://localhost:8090/createStudent";
+  updateStudentMarks: string = "http://localhost:8090/updateMarks";
+  loginStudent: string = "http://localhost:8090/students/";
 
 
-  aptitudeQuestion: string  = "https://restpsp.herokuapp.com/getAptitudeQuestions";
-  storeAptitudeMarks: string = "https://restpsp.herokuapp.com/storeAptitudeMarks";
-
-  communicationQuestion: string = "https://restpsp.herokuapp.com/getCommunicationQuestions";
-  storeCommunicationMarks: string = "https://restpsp.herokuapp.com/storeCommunicationMarks";
+  // technicalQuestion: string  = "https://restpsp.herokuapp.com/getTechnicalQuestions";
+  // storeTechnicalMarks: string = "https://restpsp.herokuapp.com/storeTechnnicalMarks";
 
 
-  signUpStudent: string = "https://restpsp.herokuapp.com/createStudent";
-  loginStudent: string = "https://restpsp.herokuapp.com/students/";
+  // aptitudeQuestion: string  = "https://restpsp.herokuapp.com/getAptitudeQuestions";
+  // storeAptitudeMarks: string = "https://restpsp.herokuapp.com/storeAptitudeMarks";
+
+  // communicationQuestion: string = "https://restpsp.herokuapp.com/getCommunicationQuestions";
+  // storeCommunicationMarks: string = "https://restpsp.herokuapp.com/storeCommunicationMarks";
+
+
+  // signUpStudent: string = "https://restpsp.herokuapp.com/createStudent";
+  // loginStudent: string = "https://restpsp.herokuapp.com/students/";
   
 
   constructor() { 
