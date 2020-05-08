@@ -66,7 +66,7 @@ export class TechnicalComponent implements OnInit, OnDestroy {
     this.timer = setTimeout(() => {
       
 
-      this.router.navigate(['/home']); 
+      this.router.navigate(['/result']); 
       }, (this.commonUrl.technicalTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
   }
 
