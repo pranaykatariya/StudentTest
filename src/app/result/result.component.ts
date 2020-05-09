@@ -15,6 +15,8 @@ export class ResultComponent implements OnInit {
   private consumedAptitudeTime: string;
 
 
+  private email: string;
+
   
   
   PieChart=[];
@@ -24,6 +26,8 @@ export class ResultComponent implements OnInit {
   
   ngOnInit()
   {
+    this.email = sessionStorage.getItem('email');
+    console.log(this.email)
 
     this.studentService.getAllStudents();
 
