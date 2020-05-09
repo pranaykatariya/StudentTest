@@ -20,6 +20,8 @@ export class ResultComponent implements OnInit {
 
 
 
+  private email: string;
+
   
   
   PieChart=[];
@@ -29,7 +31,12 @@ export class ResultComponent implements OnInit {
   
   ngOnInit()
   {
+<<<<<<< HEAD
     
+=======
+    this.email = sessionStorage.getItem('email');
+    console.log(this.email)
+>>>>>>> 681c1322f27a6d66d50474ce9016563c6164d309
 
     this.studentService.getAllStudents();
 

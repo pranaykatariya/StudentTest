@@ -22,21 +22,18 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+              <div class="topbar-divider d-none d-sm-block"></div>
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin Name</span>
+              <a class="nav-link"  aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">ADMIN</span>
               </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
+
+              <div class="topbar-divider d-none d-sm-block"></div>
+
+              <a class="nav-link"  role="button" aria-haspopup="true" aria-expanded="false"  routerLink ="/admin-login">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">LOGOUT</span>
+              </a>
+              
 
           </ul>
 
@@ -94,7 +91,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Highest Marks</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Highest Total Marks</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">80</div>
                     </div>
                     <div class="col-auto">
@@ -140,7 +137,7 @@
           <div class="row d-flex justify-content-center">
 
             <!-- Area Chart -->
-            <div class="col-xl-9 col-lg-8">
+            <div class="col-xl">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-4">
@@ -148,8 +145,42 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                  <div>
+                    <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Mobile</th>
+                              <th>Gender</th>
+                              <th>Aptitude</th>
+                              <th>Communication</th>
+                              <th>Technical</th>
+                              <th>Writing</th>
+                              <th>HSC %</th>
+                              <th>HSC Math</th>
+                              <th>SSC %</th>
+                              <th>SSC Math</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let d of data;">
+                              <td>{{d.firstName}} {{d.lastName}}</td>
+                              <td>{{d.email}}</td>
+                              <td>{{d.mobile}}</td>
+                              <td>{{d.gender}}</td>
+                              <td>{{d.aptitude_marks}}</td>
+                              <td>{{d.communication_marks}}</td>
+                              <td>{{d.technical_marks}}</td>
+                              <td>{{d.writing_marks}}</td>
+                              <td>{{d.HSC_Percentage}}</td>
+                              <td>{{d.HSC_Maths}}</td>
+                              <td>{{d.SSC_Percentage}}</td>
+                              <td>{{d.SSC_Maths}}</td>
+                          </tr>            
+                      </tbody>
+                  </table>
+
                   </div>
                 </div>
               </div>
