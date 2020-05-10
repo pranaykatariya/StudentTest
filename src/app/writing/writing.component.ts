@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonURLService } from '../services/common-url.service';
+import { WritingService } from '../services/writing.service';
 
 @Component({
   selector: 'app-writing',
@@ -11,39 +12,34 @@ export class WritingComponent implements OnInit {
 
 
   private question: string;
+  private answer: string;
 
-  constructor(private router: Router, private commonUrl: CommonURLService) { }
+  constructor(private router: Router, private commonUrl: CommonURLService, private writingService: WritingService) { }
 
   ngOnInit() {
-
     
+    this.question = this.writingService.getQuestion();
     
-    this.question = "loading...";
-    //console.log(this.aptitudeService.getAptitudeQuestion(0).question);
-    setTimeout(() => {
+    // setTimeout(() => {
     
-    // this.question = this.communicationService.questions[0].question;
-    
-
-    },this.commonUrl.questionLoadinTime);
+    // },this.commonUrl.questionLoadinTime);
 
 
     //This method will use to timeout from the given exam module
     setTimeout(() => {
       
-
-      //send data to the server 
-      // this.communicationService.calculateCommunicationMarks();
-
-      // console.log(this.communicationService.communicationResponse);
-
-      // console.log("Time over");
       this.router.navigate(['/aptitude']);
       },(this.commonUrl.writingTime * 1000 * 60 + this.commonUrl.questionLoadinTime));
 
   }
 
-
+  calculateMarks()
+  {
+      this.writingService.response.question = this.question;
+      this.writingService.response.answer = this.answer;
+      this.writingService.response.email = sessionStorage.getItem('email')
+      this.writingService.calculateWritingMarks();
+  }
 
   
   

@@ -60,6 +60,8 @@ export class CommonURLService {
   storeCommunicationMarks: string = "https://restpsp.herokuapp.com/storeCommunicationMarks";
 
 
+  storeWritingMarks: string = "https://restpsp.herokuapp.com/storeWritingMarks";
+
   signUpStudent: string = "https://restpsp.herokuapp.com/createStudent";
   updateStudentMarks: string = "https://restpsp.herokuapp.com/updateMarks";
   loginStudent: string = "https://restpsp.herokuapp.com/students/";

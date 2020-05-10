@@ -15,11 +15,6 @@ export class ResultComponent implements OnInit {
   private consumedAptitudeTime: string;
 
  
-  
-
-
-
-
   private email: string;
 
   

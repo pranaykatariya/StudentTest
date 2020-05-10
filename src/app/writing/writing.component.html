@@ -4,12 +4,17 @@
 <body>
     <form>
         <p id="ques">Q. Write an essay on "Save Water in 100-120 words"</p>
+        <p class="text-center"> {{ question }}</p>
         <br>
-        <textarea rows="15" cols="135" id="ans" placeholder="Write here!"> </textarea>
+        <textarea rows="15" cols="135" id="ans" name="answer" placeholder="Write here!" [(ngModel)]= "this.answer"> </textarea>
         <br>
         
-            <input type="submit" value="Submit"/>
+            <input (click)="calculateMarks()" type="submit" value="Submit"/>
            
 
     </form>
+
+    <p> {{ this.answer}} </p>
 </body>
+
+

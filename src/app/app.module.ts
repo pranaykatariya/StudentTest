@@ -37,6 +37,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProfileComponent } from './profile/profile.component';
 import {TipsComponent} from './tips/tips.component';
+import { WritingService } from './services/writing.service';
 
 
 
@@ -85,7 +86,8 @@ import {TipsComponent} from './tips/tips.component';
     CommonURLService,
     StudentService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    WritingService,
   ],
   bootstrap: [AppComponent]
 })

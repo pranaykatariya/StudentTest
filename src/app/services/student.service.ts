@@ -4,6 +4,7 @@ import { Student } from 'src/models/student.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StudentMark } from 'src/models/StudentMark.model';
+import { strictEqual } from 'assert';
 
 
 @Injectable({
@@ -15,6 +16,8 @@ export class StudentService
   //serverResponse: studentResponse;
   public serverResponse: Student;
   public studentMark: StudentMark;
+  public activeUser: Student;
+
 
   public studentsData: StudentMark[] = [];
 
@@ -63,4 +66,16 @@ export class StudentService
       
     }, error => console.error(error));    
   }
+
+  getStudent(idURL:string)
+  {
+    
+    this.http.get<Student>(idURL).subscribe((result) => {
+      //console.log(result);  
+      this.activeUser = result;
+      console.log('active student data loaded')
+      
+    }, error => console.error(error));    
+  }  
+
 }
