@@ -164,7 +164,12 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr *ngFor="let d of data;">
+
+                        <div *ngIf= "this.studentService.studentsData.length === 0" class="text-center">
+                            <h3>Loading... please wait</h3>
+                        </div>
+
+                          <tr *ngFor="let d of this.studentService.studentsData;">
                               <td>{{d.firstName}} {{d.lastName}}</td>
                               <td>{{d.email}}</td>
                               <td>{{d.mobile}}</td>

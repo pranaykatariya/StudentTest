@@ -26,14 +26,29 @@ export class AdminComponent implements OnInit {
     ])  
     }
 
-    this.studentService.getAllStudents();
-    this.studentService.studentsData
+    if(this.studentService.studentsData.length > 0)
+    {
+      console.log("already loaded")
     setTimeout(() => {
       console.log(this.studentService.studentsData);
 
       this.data=this.studentService.studentsData;
 
-    }, 3000);
+    }, 30);
+    }
+    else{
+
+      console.log("loading data please wait")
+      setTimeout(() => {
+        this.studentService.getAllStudents();
+        this.studentService.studentsData
+        console.log(this.studentService.studentsData);
+  
+        this.data=this.studentService.studentsData;
+  
+      }, 18000);
+
+    }
   }
 
 }

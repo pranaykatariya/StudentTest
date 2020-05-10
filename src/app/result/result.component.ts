@@ -31,12 +31,7 @@ export class ResultComponent implements OnInit {
   
   ngOnInit()
   {
-<<<<<<< HEAD
     
-=======
-    this.email = sessionStorage.getItem('email');
-    console.log(this.email)
->>>>>>> 681c1322f27a6d66d50474ce9016563c6164d309
 
     this.studentService.getAllStudents();
 
@@ -48,10 +43,10 @@ export class ResultComponent implements OnInit {
       console.log(this.studentService.studentsData);
     
     
-      this.communication_marks=this.studentService.studentsData.communication_marks;
-      this.technical_marks=this.studentService.studentsData[0].technical_marks;
-      this.writing_marks=this.studentService.studentsData[0].writing_marks;
-      this.aptitude_marks=this.studentService.studentsData[0].aptitude_marks;
+      // this.communication_marks=this.studentService.studentsData.communication_marks;
+      // this.technical_marks=this.studentService.studentsData[0].technical_marks;
+      // this.writing_marks=this.studentService.studentsData[0].writing_marks;
+      // this.aptitude_marks=this.studentService.studentsData[0].aptitude_marks;
       
        
 

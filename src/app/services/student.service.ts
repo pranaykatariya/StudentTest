@@ -59,7 +59,7 @@ export class StudentService
     this.http.get<StudentMark[]>(this.url.studentData).subscribe((result) => {
       //console.log(result);  
       this.studentsData = result;
-      
+      console.log('student data loaded')
       
     }, error => console.error(error));    
   }
