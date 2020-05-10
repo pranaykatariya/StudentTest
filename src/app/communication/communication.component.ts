@@ -74,6 +74,10 @@ export class CommunicationComponent implements OnInit, OnDestroy {
 
   updateCheckedOtions(response: string)
   {
+
+
+    
+
     console.log('radio clicked');
     console.log(response);
 
