@@ -16,7 +16,7 @@
 <div class="category">
 
 <h2 style="text-align: center;font-family: Times New Roman;">Score by category</h2>
-<h4>Communication: </h4>
+<h4>Communication: {{this.studentService.activeUser.communication_marks}} </h4>
 <h4>Aptitude: </h4>
 <h4>Writing: </h4>
 <h4>Technical: </h4>
@@ -29,7 +29,7 @@
 <div class="category">
 
   <h2 style="text-align: center;font-family: Times New Roman;">Time Required by category</h2>
-  <h4>Communication: {{ consumedCommunicationTime| date:'mm:ss'  }}</h4>
+  <h4>Communication: {{ consumedCommunicationTime}}</h4>
   <h4>Aptitude: {{ consumedAptitudeTime }}</h4>
   <h4>Writing: {{ consumedWritingTime }}</h4>
   <h4>Technical: {{ consumedTechnicalTime }}</h4>
