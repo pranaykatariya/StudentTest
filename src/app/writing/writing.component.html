@@ -3,8 +3,8 @@
 
 <body>
     <form>
-        <p id="ques">Q. Write an essay on "Save Water in 100-120 words"</p>
-        <p class="text-center"> {{ question }}</p>
+        <p id="ques">Q. Write an essay {{question }} in 300 -350 words</p>
+        
         <br>
         <textarea rows="15" cols="135" id="ans" name="answer" placeholder="Write here!" [(ngModel)]= "this.answer"> </textarea>
         <br>
@@ -16,5 +16,7 @@
 
     <p> {{ this.answer}} </p>
 </body>
+
+
 
 
