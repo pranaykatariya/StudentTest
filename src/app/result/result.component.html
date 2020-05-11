@@ -2,14 +2,12 @@
 
 <div class ="score">
   <h1 style="text-align: center;font-family: Times New Roman;">Score</h1>
-  <h5>Correct Answers:</h5>
-  <h5>Wrong Answers:</h5>
-  <h5>Unanswered:</h5>
-  <h5>Skipped:</h5>
-  <h5>Time Used:</h5>
-  <h5>Time left:</h5>
-  <h5>Time per question:</h5>
-  <h5>Average Score:</h5>
+  <h5>Correct Answers: {{correct_ans}}</h5>
+  <h5>Wrong Answers:{{wrong_ans}}</h5>
+  <h5>Time Used:{{time_used}}</h5>
+ <!----<h5>Time left:</h5>-->
+ <!---- <h5>Time per question:</h5>-->
+  <h5>Average Score:{{average}}</h5>
 </div>
 <br>
 <br>
@@ -17,9 +15,9 @@
 
 <h2 style="text-align: center;font-family: Times New Roman;">Score by category</h2>
 <h4>Communication: {{this.studentService.activeUser.communication_marks}} </h4>
-<h4>Aptitude: </h4>
-<h4>Writing: </h4>
-<h4>Technical: </h4>
+<h4>Aptitude:{{this.studentService.activeUser.aptitude_marks}} </h4>
+<h4>Writing: {{this.studentService.activeUser.writing_marks}}</h4>
+<h4>Technical: {{this.studentService.activeUser.technical_marks}}</h4>
 
 
 
@@ -39,3 +37,4 @@
   </div>
 
 <app-my-chart></app-my-chart>
+

@@ -17,6 +17,14 @@ export class ResultComponent implements OnInit {
  
   private email: string;
   private activeUserUrl: string;
+  private correct_ans:number;
+  private wrong_ans:number;
+  private total_q:number;
+  private time_used:string;
+  private average:number;
+  
+
+ 
   
   
   PieChart=[];
@@ -35,16 +43,25 @@ export class ResultComponent implements OnInit {
     this.studentService.activeUser
 
     
+    
 
     //this is all students data in json format available after 3 sec 
     setTimeout(() => {
       console.log(this.studentService.activeUser)     
       // this.studentService.activeUser.communication_marks
     
-      // this.communication_marks=this.studentService.studentsData.communication_marks;
-      // this.technical_marks=this.studentService.studentsData[0].technical_marks;
-      // this.writing_marks=this.studentService.studentsData[0].writing_marks;
-      // this.aptitude_marks=this.studentService.studentsData[0].aptitude_marks;
+      
+      this.correct_ans=this.studentService.activeUser.communication_marks+this.studentService.activeUser.aptitude_marks
+      +this.studentService.activeUser.writing_marks+this.studentService.activeUser.technical_marks
+
+      this.total_q=76
+      this.wrong_ans=this.total_q-this.correct_ans
+
+     this.time_used=this.consumedCommunicationTime[0]+ this.consumedWritingTime[0]
+      +this.consumedAptitudeTime[0]+this.consumedTechnicalTime[0]
+
+      this.average=this.correct_ans/4
+
       
       
 
