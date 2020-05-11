@@ -18,6 +18,9 @@ export class StudentService
   public serverResponse: Student;
   public studentMark: StudentMark;
   public activeUser: StudentResult;
+  public sum:number;
+  public avg:number;
+ 
 
 
   public studentsData: StudentMark[] = [];
@@ -77,6 +80,76 @@ export class StudentService
       console.log('active student data loaded')
       
     }, error => console.error(error));    
-  }  
+  } 
+  
 
+
+  aptiaverage(): number
+  {
+        this.sum=0;
+        this.avg=0;
+        for(var i=0;i<this.studentsData.length;i++)
+        {
+          this.sum = this.sum+this.studentsData[i].aptitude_marks;
+        }
+        this.avg=(this.sum/this.studentsData.length);
+
+         return parseFloat(this.avg.toFixed(2));
+  }
+
+  techaverage(): number
+  {
+        this.sum=0;
+        this.avg=0;
+        for(var i=0;i<this.studentsData.length;i++)
+        {
+          this.sum = this.sum+this.studentsData[i].technical_marks;
+        }
+        this.avg=(this.sum/this.studentsData.length);
+
+         return parseFloat(this.avg.toFixed(2));
+  }
+
+  wriaverage(): number
+  {
+        this.sum=0;
+        this.avg=0;
+        for(var i=0;i<this.studentsData.length;i++)
+        {
+          this.sum = this.sum+this.studentsData[i].writing_marks;
+        }
+        this.avg=(this.sum/this.studentsData.length);
+
+         return parseFloat(this.avg.toFixed(2));
+  }
+
+  commaverage(): number
+  {
+        this.sum=0;
+        this.avg=0;
+        for(var i=0;i<this.studentsData.length;i++)
+        {
+          this.sum = this.sum+this.studentsData[i].communication_marks;
+        }
+        this.avg=(this.sum/this.studentsData.length);
+
+        return parseFloat(this.avg.toFixed(2));
+  }
+
+  allaverage(): number
+  {
+        this.sum=0;
+        this.avg=0;
+        for(var i=0;i<this.studentsData.length;i++)
+        {
+          this.sum = this.sum+this.studentsData[i].communication_marks+this.studentsData[i].writing_marks+this.studentsData[i].technical_marks+this.studentsData[i].aptitude_marks;
+        }
+        this.avg=(this.sum/this.studentsData.length);
+
+         return parseFloat(this.avg.toFixed(2));
+  }
+
+
+  
 }
+
