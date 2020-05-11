@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { StudentMark } from 'src/models/StudentMark.model';
 import { strictEqual } from 'assert';
 import { StudentResult  } from 'src/models/StudentResult.model';
+import { ReturnStatement } from '@angular/compiler';
 
 
 @Injectable({
@@ -20,6 +21,7 @@ export class StudentService
   public activeUser: StudentResult;
   public sum:number;
   public avg:number;
+ 
  
 
 
@@ -92,7 +94,7 @@ export class StudentService
         {
           this.sum = this.sum+this.studentsData[i].aptitude_marks;
         }
-        this.avg=(this.sum/this.studentsData.length);
+        this.avg=((this.sum*100)/(this.studentsData.length*30));
 
          return parseFloat(this.avg.toFixed(2));
   }
@@ -105,7 +107,7 @@ export class StudentService
         {
           this.sum = this.sum+this.studentsData[i].technical_marks;
         }
-        this.avg=(this.sum/this.studentsData.length);
+        this.avg=((this.sum*100)/(this.studentsData.length*30));
 
          return parseFloat(this.avg.toFixed(2));
   }
@@ -118,7 +120,7 @@ export class StudentService
         {
           this.sum = this.sum+this.studentsData[i].writing_marks;
         }
-        this.avg=(this.sum/this.studentsData.length);
+        this.avg=((this.sum*100)/(this.studentsData.length*15));
 
          return parseFloat(this.avg.toFixed(2));
   }
@@ -131,7 +133,7 @@ export class StudentService
         {
           this.sum = this.sum+this.studentsData[i].communication_marks;
         }
-        this.avg=(this.sum/this.studentsData.length);
+        this.avg=((this.sum*100)/(this.studentsData.length*15));
 
         return parseFloat(this.avg.toFixed(2));
   }
@@ -143,10 +145,34 @@ export class StudentService
         for(var i=0;i<this.studentsData.length;i++)
         {
           this.sum = this.sum+this.studentsData[i].communication_marks+this.studentsData[i].writing_marks+this.studentsData[i].technical_marks+this.studentsData[i].aptitude_marks;
+        
         }
         this.avg=(this.sum/this.studentsData.length);
 
          return parseFloat(this.avg.toFixed(2));
+  }
+
+
+  getcolor(x:number): string
+  {
+    if(x>=0 && x<=25)
+    {
+      return 'bg-danger';
+    }
+    else if(x>25 && x<=51){
+      return 'bg-warning';
+    }
+    else if(x>51 && x<=75){
+      return 'bg-info';
+    }
+    else if(x>75 && x<=100){
+      return 'bg-success';
+    }
+    else
+    {
+      return 'bg-dark';
+    }
+      
   }
 
 
